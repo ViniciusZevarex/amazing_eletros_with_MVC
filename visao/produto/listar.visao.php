@@ -18,7 +18,7 @@
 				<img src="publico/imgs/imgsEstilos/carousel/02.jpg">
 			</div>
 			<div class="item col-lg-12">
-				<img src="publico/imgs/imgsEstilos/carousel/03.jpg">
+				<img src="./publico/imgs/imgsEstilos/carousel/03.jpg">
 			</div>
 		</div>
 
@@ -35,6 +35,7 @@
 </header>
 
 <h1 class="text-center">CONFIRA ESTAS OFERTAS EXCLUSIVAS <span class="glyphicon glyphicon glyphicon-circle-arrow-down"></span></h1>
+
 <?php foreach ($produtos as $produto) {?>
 	<div class="col-sm-3 col-md-4">
 		<div class="thumbnail">

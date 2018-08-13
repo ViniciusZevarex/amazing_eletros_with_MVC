@@ -1,6 +1,7 @@
 <?php 
 	require "modelo/produtoModelo.php";
-	require "servicos/correiosServico.php";
+	require "modelo/categoriaModelo.php";
+	require "servicos/uploadImagemServico.php";
 
 	function index(){
 		$dados["produtos"] = getAllProducts();
@@ -13,7 +14,19 @@
 	}
 	
 	function adicionar(){
-		// $dados["produto"] = insertProduct($codProduto,$codCategoria,$nomeProduto,$precoProduto,$descricaoProduto, $SourceImage);
-		exibir("produto/formulario");
+		if (ehPost()) {
+		    extract($_POST);
+		    $imagem_name = $_FILES["imagemProduto"]["name"];
+		    $imagem_tmp = $_FILES["imagemProduto"]["tmp_name"];
+
+		    $diretorio_imagem = uploadImagem($imagem_name, $imagem_tmp);
+
+		    $msgRetorno = insertProduct($codProduto,$codCategoria,$nomeProduto,$precoProduto,$descricaoProduto,$SourceImage, $diretorio_imagem);
+
+		    redirecionar("produto/index");
+		} else {
+			$dados["categorias"] = getCategorias();
+		    exibir("produto/formulario",$dados);
+		}
 	}
 ?>

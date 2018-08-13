@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./publico/_css/style.css">
 </head>
     <body>
-        <?php require "visao/cabecalho.php"; ?>
+        <?php require "./visao/cabecalho.php"; ?>
 
         <?php alertComponentRender(); ?>
 
@@ -21,7 +21,7 @@
 
         <?php require "visao/footer.php"; ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="publico/js/bootstrap.min.js"></script>
-    <script src="publico/_js/jquery.mask.js"></script>
+    <script src="./publico/js/bootstrap.min.js"></script>
+    <script src="./publico/_js/jquery.mask.js"></script>
     </body>
 </html>
