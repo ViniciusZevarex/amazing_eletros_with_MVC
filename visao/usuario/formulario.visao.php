@@ -48,7 +48,7 @@
 		<div class="form-group">
 			<label for="pais" class="col-sm-2 control-label">País:</label>
 			<div class="col-sm-10">
-				<?php include("componentes/paises.php") ?>
+				<?php include("./bibliotecas/listaPaises.php") ?>
 			</div>
 		</div>
 		<div class="form-group">

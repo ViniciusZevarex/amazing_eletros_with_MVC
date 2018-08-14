@@ -2,7 +2,7 @@
 
 function pegarTodosUsuarios() {
     $sql = "SELECT * FROM tblusuario";
-    $resultado = mysqli_query(conn(), $sql);
+    $resultado = mysqli_query(conexao(), $sql);
     $tblusuarios = array();
     while ($linha = mysqli_fetch_array($resultado)) {
         $tblusuarios[] = $linha;
@@ -12,7 +12,7 @@ function pegarTodosUsuarios() {
 
 function pegarUsuarioPorId($id) {
     $sql = "SELECT * FROM tblusuario WHERE id= $id";
-    $resultado = mysqli_query(conn(), $sql);
+    $resultado = mysqli_query(conexao(), $sql);
     $tblusuario = mysqli_fetch_array($resultado);
     return $tblusuario;
 }
@@ -20,7 +20,7 @@ function pegarUsuarioPorId($id) {
 function adicionarUsuario($nome, $email, $senha, $CPF_cadastro, $Pais, $endereco, $data_total) {
     $insert = "INSERT INTO tblUsuario(Nome,Email,Senha,CPF,Pais,endereco,dtNasc) VALUES('$nome', '$email', '$senha', '$CPF_cadastro', '$Pais', '$endereco', '$data_total')";
 
-    $resultado = mysqli_query($cnx = conn(),$insert);
+    $resultado = mysqli_query($cnx = conexao(),$insert);
     if (!$resultado) {
         echo "Não deu certo " . mysqli_error($cnx);
         die();

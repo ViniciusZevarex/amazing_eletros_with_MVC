@@ -11,4 +11,4 @@ require_once 'bibliotecas/alert.php';
 //require_once 'bibliotecas/auth.php';
 
 define('CONTROLADOR_PADRAO', 'produto');
-define('BASE_URL', 'http://localhost/amazing_eletros/');
+define('BASE_URL', 'http://localhost/amazing_eletros_with_MVC/');

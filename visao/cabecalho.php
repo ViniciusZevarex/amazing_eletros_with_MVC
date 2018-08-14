@@ -21,7 +21,7 @@
 
 				<!-- pagina login ou dados do usuario -->
 				<?php if (!isset($_SESSION["logado"]) || !$_SESSION["logado"]){ ?>
-				<li><a href="cadastro_login.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Entre ou Cadastre-se</a></li>
+				<li><a href="./visao/usuario/"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Entre ou Cadastre-se</a></li>
 				<?php } else { ?>				
 				<li>
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">

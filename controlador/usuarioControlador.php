@@ -3,8 +3,7 @@
 require "modelo/usuarioModelo.php";
 
 function index() {
-    $dados["usuarios"] = pegarTodosUsuarios();
-    exibir("usuario/listar", $dados);
+    exibir("usuario/formulario");
 }
 
 function adicionar() {
