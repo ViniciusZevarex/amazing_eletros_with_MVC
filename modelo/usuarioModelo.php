@@ -1,41 +1,55 @@
 <?php
 
 function pegarTodosUsuarios() {
-    $sql = "SELECT * FROM usuario";
+    $sql = "SELECT * FROM tblusuario";
     $resultado = mysqli_query(conn(), $sql);
-    $usuarios = array();
+    $tblusuarios = array();
     while ($linha = mysqli_fetch_array($resultado)) {
-        $usuarios[] = $linha;
+        $tblusuarios[] = $linha;
     }
-    return $usuarios;
+    return $tblusuarios;
 }
 
 function pegarUsuarioPorId($id) {
-    $sql = "SELECT * FROM usuario WHERE id= $id";
+    $sql = "SELECT * FROM tblusuario WHERE id= $id";
     $resultado = mysqli_query(conn(), $sql);
-    $usuario = mysqli_fetch_array($resultado);
-    return $usuario;
+    $tblusuario = mysqli_fetch_array($resultado);
+    return $tblusuario;
 }
 
-function adicionarUsuario($nome, $email, $sexo) {
-    $sql = "INSERT INTO usuario (nome, email, sexo) 
-			VALUES ('$nome', '$email', '$sexo')";
-    $resultado = mysqli_query($cnx = conn(), $sql);
-    if(!$resultado) { die('Erro ao cadastrar usuário' . mysqli_error($cnx)); }
-    return 'Usuario cadastrado com sucesso!';
+function adicionarUsuario($nome, $email, $senha, $CPF_cadastro, $Pais, $endereco, $data_total) {
+    $insert = "INSERT INTO tblUsuario(Nome,Email,Senha,CPF,Pais,endereco,dtNasc) VALUES('$nome', '$email', '$senha', '$CPF_cadastro', '$Pais', '$endereco', '$data_total')";
+
+    $resultado = mysqli_query($cnx = conn(),$insert);
+    if (!$resultado) {
+        echo "Não deu certo " . mysqli_error($cnx);
+        die();
+    }
 }
 
 function editarUsuario($id, $nome, $email) {
-    $sql = "UPDATE usuario SET nome = '$nome', email = '$email' WHERE id = $id";
-    $resultado = mysqli_query($cnx = conn(), $sql);
-    if(!$resultado) { die('Erro ao alterar usuário' . mysqli_error($cnx)); }
-    return 'Usuário alterado com sucesso!';
+    $update = "UPDATE tblusuario SET 
+    Nome = '$nome',
+    Email = '$email',
+    Senha = '$senha',
+    ConfirmarSenha = '$confirmaSenha',
+    Pais = '$Pais',
+    endereco = '$endereco'
+    WHERE CodCliente = $id";
+
+    $resultado = mysqli_query($conexao,$update);
+    if (!$resultado) {
+       echo "Não deu certo " . mysqli_error($conexao);
+       die();
+   }
 }
 
 function deletarUsuario($id) {
-    $sql = "DELETE FROM usuario2 WHERE id = $id";
-    $resultado = mysqli_query($cnx = conn(), $sql);
-    if(!$resultado) { die('Erro ao deletar usuário' . mysqli_error($cnx)); }
-    return 'Usuario deletado com sucesso!';
-            
+    $exclusao   = "DELETE FROM tblusuario WHERE CodCliente = '$id'";
+    $resultado     = mysqli_query($conexao,$exclusao);
+    
+    if (!$resultado) {
+     echo "Não deu certo " . mysqli_error($cnx);
+     die();
+ }
 }
