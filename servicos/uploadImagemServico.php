@@ -3,11 +3,11 @@
 
 function uploadImagem($SourceImage, $imagem_tmp) {
 	$imagem				= basename($SourceImage);
-	$diretorio_mover	= "../imgs/produtos/";
-	$diretorio   		= "../../publico/imgs/produtos/";
+	$diretorio_mover	= "publico/imgs/produtos/" . $imagem;
+	$diretorio   		= "./publico/imgs/produtos/";
 
-	$resultado = move_uploaded_file($imagem_tmp, $diretorio_mover. $imagem);
-	$diretorio_imagem = $diretorio. $imagem;
+	$resultado = move_uploaded_file($imagem_tmp, $diretorio_mover);
+	$diretorio_imagem = $diretorio_mover;
 
 	if(!$resultado) {
 		die("Nao deu certo o upload!");

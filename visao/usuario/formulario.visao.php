@@ -1,7 +1,7 @@
 <div class="row center-block" id="form_cadastro">
 	<h2 class="text-center title-section">Cadastre-se</h2>
 
-	<form class="form-horizontal center-block" action="cadastro_login.php" method="post">
+	<form class="form-horizontal center-block" action="usuario/adicionar" method="post">
 
 		<div class="form-group">
 			<label for="nome" class="col-sm-2 control-label">Nome completo:</label>

@@ -16,12 +16,11 @@
 	function adicionar(){
 		if (ehPost()) {
 		    extract($_POST);
-		    $imagem_name = $_FILES["imagemProduto"]["name"];
-		    $imagem_tmp = $_FILES["imagemProduto"]["tmp_name"];
+		    $imagem_name 	= $_FILES["imagemProduto"]["name"];
+		    $imagem_tmp 	= $_FILES["imagemProduto"]["tmp_name"];
 
-		    $diretorio_imagem = uploadImagem($imagem_name, $imagem_tmp);
-
-		    $msgRetorno = insertProduct($codProduto,$codCategoria,$nomeProduto,$precoProduto,$descricaoProduto,$SourceImage, $diretorio_imagem);
+		    $diretorio_imagem 	= uploadImagem($imagem_name, $imagem_tmp);
+		    $msgRetorno 		= insertProduct($codCategoria,$nomeProduto,$precoProduto,$descricaoProduto, $diretorio_imagem);
 
 		    redirecionar("produto/index");
 		} else {

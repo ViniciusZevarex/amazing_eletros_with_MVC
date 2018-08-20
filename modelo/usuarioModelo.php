@@ -17,8 +17,8 @@ function pegarUsuarioPorId($id) {
     return $tblusuario;
 }
 
-function adicionarUsuario($nome, $email, $senha, $CPF_cadastro, $Pais, $endereco, $data_total) {
-    $insert = "INSERT INTO tblUsuario(Nome,Email,Senha,CPF,Pais,endereco,dtNasc) VALUES('$nome', '$email', '$senha', '$CPF_cadastro', '$Pais', '$endereco', '$data_total')";
+function adicionarUsuario($nome, $CPF, $email, $senha, $data_nascimento, $pais, $endereco, $sexo) {
+    $insert = "INSERT INTO tblUsuario(Nome,Email,Senha,CPF,Pais,endereco,dtNasc) VALUES('$nome', '$email', '$senha', '$CPF', '$pais', '$endereco', '2002-07-24')";
 
     $resultado = mysqli_query($cnx = conexao(),$insert);
     if (!$resultado) {

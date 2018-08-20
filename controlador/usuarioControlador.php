@@ -9,7 +9,8 @@ function index() {
 function adicionar() {
     if (ehPost()) {
         extract($_POST);
-        alert(adicionarUsuario($nome, $email, $sexo));
+
+        alert(adicionarUsuario($nome_cadastro, $CPF_cadastro, $email_cadastro, $senha_cadastro, $confirmar_senha_cadastro, $data_nascimento, $pais, $endereco, $sexo));
         redirecionar("usuario/index");
     } else {
         exibir("usuario/formulario");

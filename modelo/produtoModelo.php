@@ -7,11 +7,11 @@ require_once "bibliotecas/mysqli.php";
 	 *
 	 **/
 
-	 	function insertProduct($codProduto,$codCategoria,$nomeProduto,$precoProduto,$descricaoProduto, $SourceImage, $diretorio_imagem){
+	 	function insertProduct($codCategoria,$nomeProduto,$precoProduto,$descricaoProduto, $diretorio_imagem){
 		//imagem do produto
 	 		$insert = "INSERT INTO tblproduto(CodCategoria,nomeProduto,Preco,DescricaoProduto,Imagem) VALUES ($codCategoria,'$nomeProduto','$precoProduto','$descricaoProduto','$diretorio_imagem')";
 
-	 		$consulta = mysqli_query(conexao(),$insert);
+	 		$consulta = mysqli_query($cnx = conexao(),$insert);
 
 
  		    if(!$consulta) { die('Erro ao cadastrar produto' . mysqli_error($cnx)); }
