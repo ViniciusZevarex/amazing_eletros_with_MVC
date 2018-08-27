@@ -75,15 +75,7 @@ require_once "bibliotecas/mysqli.php";
 	 **/
 
 
-		function updateDataProduct($codProduto,$codCategoria,$nomeProduto,$precoProduto,$descricaoProduto, $SourceImage){
-
-		//imagem do produto
-			$imagem		= basename($SourceImage);
-			$diretorio_mover	= "../../imgs/produtos/";
-			$diretorio   		= "imgs/produtos/";
-
-			move_uploaded_file($imagem_tmp, $diretorio_mover. $imagem);
-			$diretorio_imagem = $diretorio. $imagem;
+		function updateDataProduct($codProduto,$codCategoria,$nomeProduto,$precoProduto,$descricaoProduto, $diretorio_imagem){
 
 			$update = "UPDATE tblproduto SET CodProduto = '$codProduto',CodCategoria = '$codCategoria',nomeProduto = '$nomeProduto',Preco = '$precoProduto',DescricaoProduto = '$descricaoProduto',Imagem = '$diretorio_imagem' WHERE CodProduto = $codProduto";
 

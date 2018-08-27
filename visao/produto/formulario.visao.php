@@ -1,4 +1,4 @@
-<form class="form-horizontal" action="./produto/adicionar" method="post" enctype="multipart/form-data">
+<form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
 	<div class="form-group">
 		<label for="codCategoria" class="col-sm-2 control-label">CODIGO CATEGORIA</label>
 		<div class="col-sm-10">
@@ -13,20 +13,20 @@
 		<div class="form-group">
 			<label for="nomeProduto" class="col-sm-2 control-label">NOME DO PRODUTO</label>
 			<div class="col-sm-10">
-				<input type="text" class="form-control" name="nomeProduto" id="nomeProduto" placeholder="NOME DO PRODUTO">
+				<input type="text" class="form-control" name="nomeProduto" id="nomeProduto" placeholder="NOME DO PRODUTO" value="<?=@ $produto['NomeProduto']  ?>">
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="precoProduto" class="col-sm-2 control-label">PREÇO</label>
 			<div class="col-sm-10">
-				<input type="number" class="form-control" name="precoProduto" id="precoProduto" placeholder="PREÇO DO PRODUTO">
+				<input type="number" class="form-control" name="precoProduto" id="precoProduto" placeholder="PREÇO DO PRODUTO" value="<?=@ $produto['Preco']  ?>">
 			</div>
 		</div>
 
 		<div class="form-group">
 			<label for="descricaoProduto" class="col-sm-2 control-label">DESCRIÇÃO</label>
 			<div class="col-sm-10 ">
-				<textarea class="form-control" rows="3" name="descricaoProduto" id="descricaoProduto" placeholder="DESCRIÇÃO DO PRODUTO"></textarea>
+				<textarea class="form-control" rows="3" name="descricaoProduto" id="descricaoProduto" placeholder="DESCRIÇÃO DO PRODUTO"><?=@ $produto["DescricaoProduto"]  ?></textarea>
 			</div>
 		</div>
 		<!-- Imagens-->
