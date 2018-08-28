@@ -47,4 +47,9 @@
 			exibir("produto/formulario", $dados);
 		}
 	}
+
+	function deletar($id){
+		deleteProduct($id);
+		redirecionar("produto/index");
+	}
 ?>

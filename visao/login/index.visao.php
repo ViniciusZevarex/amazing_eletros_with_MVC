@@ -1,18 +1,20 @@
-<h2>Acesse o sistema</h2>
+<div class="container-form col-md-4 col-md-offset-4">
+<h2 class="text-center title-section">Cadastre-se</h2>
+	<form>
 
-<form method="POST" action="">
-	
-	<div class="form-group">
-    	<label for="login">Login:</label>
-    	<input id="login" class="form-control" type="text" name="login">
-  	</div>
+		<div class="form-group">
+			<label for="inputEmail3">Email</label>
+			<input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+		</div>
 
-	<div class="form-group">
-		<label for="passwd">Password:</label>
-		<input id="passwd" class="form-control" type="password" name="passwd">
-	</div>
+		<div class="form-group">
+			<label for="inputPassword3">Senha:</label>
+			<input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+		</div>
 
-	
-	<button type="submit" class="btn btn-primary">vai login</button>
+		<div class="form-group">
+			<button type="submit" class="btn btn-primary col-md-12">Entrar</button>
+		</div>
 
-</form>
+	</form>
+</div>

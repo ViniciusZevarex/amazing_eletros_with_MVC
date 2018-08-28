@@ -28,7 +28,7 @@ function alertComponentRender() {
         $msgs = implode(',', $_SESSION["alert"]);
         $alertLevel = $_SESSION["alertLevel"];
 
-        $html = '<div class="alert alert-' . $alertLevel . '" role="alert">';
+        $html = '<div class="alert alert-warning alert-' . $alertLevel . '" role="alert">';
         $html .= '<strong>' . $msgs . '</strong>';
         $html .= '</div>';
 

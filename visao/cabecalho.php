@@ -18,25 +18,8 @@
 				<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
 			</form>
 			<ul class="nav navbar-nav navbar-right">
-
-				<!-- pagina login ou dados do usuario -->
-				<?php if (!isset($_SESSION["logado"]) || !$_SESSION["logado"]){ ?>
-				<li><a href="./visao/usuario/"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Entre ou Cadastre-se</a></li>
-				<?php } else { ?>				
-				<li>
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-						<span class="glyphicon glyphicon-user" aria-hidden="true">
-							<?php echo $_SESSION["dados_cliente"]["Nome"] ?>
-						</span>
-						<span class="caret"></span>
-					</a>
-					<ul class="dropdown-menu">
-						<li><a href="<?php echo "usuario.php?id=" . $_SESSION['dados_cliente']['CodCliente']  ?>">Meus Dados</a></li>
-						<li><a href="biblioteca/logout.php">Logout</a></li>
-					</ul>
-				</li>
-				<?php } ?>
-
+				<li><a href="./login/">Entre</a></li>
+				<li><a href="./usuario/"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Cadastre-se</a></li>
 				<!-- carrinho de compras -->
 				<li><a href="carrinho.php"><span class="glyphicon glyphicon-shopping-cart"></span><span class="badge">
 					<?php echo isset($_SESSION["carrinho"]) ? count($_SESSION["carrinho"]) : 0; ?>

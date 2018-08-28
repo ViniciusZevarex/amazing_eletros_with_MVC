@@ -1,4 +1,4 @@
-<div class="row center-block" id="form_cadastro">
+<div class="container-form col-md-7 col-md-offset-2" id="form_cadastro">
 	<h2 class="text-center title-section">Cadastre-se</h2>
 
 	<form class="form-horizontal center-block" action="usuario/adicionar" method="post">
@@ -23,7 +23,7 @@
 				<input name="email_cadastro" type="email" id="email_cadastro" class="form-control" placeholder="Insira aqui seu email" aria-describedby="basic-addon2">
 			</div>
 		</div>
- 
+
 		<div class="form-group">
 			<label for="senha_cadas" class="col-sm-2 control-label">Senha:</label>
 			<div class="col-sm-10">
@@ -32,9 +32,9 @@
 		</div>
 
 		<div class="form-group">
-			<label for="confirmar_senha_cadastro" class="col-sm-2 control-label">Confirmar Senha:</label>
+			<label for="confirmar_senha" class="col-sm-2 control-label">Confirmar Senha:</label>
 			<div class="col-sm-10">
-				<input name="confirmar_senha_cadastro" type="password" id="confirmar_senha_cadastro" class="form-control" placeholder="Confirme sua senha" aria-describedby="basic-addon2">
+				<input name="confirmar_senha" type="password" id="confirmar_senha" class="form-control" placeholder="Confirme sua senha" aria-describedby="basic-addon2">
 			</div>
 		</div>
 
@@ -72,9 +72,7 @@
 		</div>
 
 		<div class="form-group">
-			<div class="col-sm-offset-2 col-sm-10">
-				<input class="btn btn-primary btn-submit-form" type="submit" name="button_cadastro">
-			</div>
+			<input class="btn btn-primary btn-submit-form col-sm-offset-4 col-sm-5" type="submit" name="button_cadastro">
 		</div>
 	</form>
 </div>

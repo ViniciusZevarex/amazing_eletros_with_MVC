@@ -51,6 +51,14 @@ img.imagem-produto{
 	height: 250px;
 	width: 250px;
 }
+
+.container-form{
+	border: 1px solid #b4b4b4;
+	border-radius: 20px;
+	padding: 5%;
+	margin-bottom: 1%;
+	background-color: white;
+}
 /* for mobile */
 @media screen and (max-width: 970px){
 	.section-right{

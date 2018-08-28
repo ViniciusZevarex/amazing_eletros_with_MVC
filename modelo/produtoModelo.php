@@ -104,9 +104,10 @@ require_once "bibliotecas/mysqli.php";
 
 	 		if (!$comando) {
 	 			echo "Erro: " . mysqli_error(conexao());
-	 		}else{			
-	 			$caminhoImagem = $produto["Imagem"];
-	 			unlink("../../" . $caminhoImagem);
+	 		// }else{			
+	 		// 	$caminhoImagem = $produto["Imagem"];
+	 		// 	unlink("./" . $caminhoImagem);
+	 		// 
 	 		}
 	 	}
-	 	?>
+?>

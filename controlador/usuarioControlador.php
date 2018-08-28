@@ -1,6 +1,7 @@
 <?php
 
 require "modelo/usuarioModelo.php";
+require "bibliotecas/validacaoCadastro.php";
 
 function index() {
     exibir("usuario/formulario");
@@ -9,9 +10,20 @@ function index() {
 function adicionar() {
     if (ehPost()) {
         extract($_POST);
+        $data = explode("/",$data_nascimento);
+        $dia = $data[0]; 
+        $mes = $data[1];
+        $ano = $data[2];
+        $data_nascimento = "$ano-$mes-$dia";
 
-        alert(adicionarUsuario($nome_cadastro, $CPF_cadastro, $email_cadastro, $senha_cadastro, $confirmar_senha_cadastro, $data_nascimento, $pais, $endereco, $sexo));
-        redirecionar("usuario/index");
+        $erros = validacaoCadastro($nome_cadastro, $CPF_cadastro, $email_cadastro, $senha_cadastro,$confirmar_senha,$dia,$mes,$ano, $pais, $endereco, $sexo);
+
+        if (empty($erros)) {   
+            alert(adicionarUsuario($nome_cadastro, $CPF_cadastro, $email_cadastro, $senha_cadastro, $data_nascimento, $pais, $endereco, $sexo));
+            redirecionar("produto/index");
+        }else{
+            print_r($erros);
+        }
     } else {
         exibir("usuario/formulario");
     }

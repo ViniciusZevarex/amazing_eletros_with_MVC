@@ -47,9 +47,11 @@
 					<li class="list-group-item"><?php echo "À prazo: 12x de " . number_format($produto['Preco']/12, 2) . " R$"; ?></li>
 				</ul>
 				<a href="./produto/visualizar/<?php echo $produto['CodProduto'] ?>" class="btn btn-primary" role="button">Ver produto</a>
-				<a href="<?php echo 'biblioteca/add_carrinho.php?produto=' . $produto['CodProduto']  ?>" class="btn btn-default" role="button">
+				<a href="" class="btn btn-default" role="button">
 					Adicionar ao Carrinho
 				</a>
+				<a href="./produto/editar/<?php echo $produto['CodProduto'] ?>" class="btn btn-default" role="button">Editar</a>
+				<a href="./produto/deletar/<?php echo $produto['CodProduto'] ?>" class="btn btn-default" role="button">Deletar</a>
 			</div>
 		</div>
 	</div>
