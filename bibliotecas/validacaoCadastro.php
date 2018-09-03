@@ -1,5 +1,5 @@
 <?php
-function validacaoCadastro($nome, $CPF, $email, $senha, $confirmar_senha,$dia,$mes,$ano, $pais, $endereco, $sexo){
+function validacaoCadastro($nome, $CPF, $email, $senha, $confirmar_senha,$dia,$mes,$ano, $pais, $endereco, $sexo, $data){
 		$errors 		= array();
 		$email			= strip_tags($email);
 		$nome 			= strip_tags($nome);

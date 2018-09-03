@@ -2,17 +2,19 @@
 	require "modelo/produtoModelo.php";
 	require "modelo/categoriaModelo.php";
 	require "servicos/uploadImagemServico.php";
-
+	/** anon */
 	function index(){
 		$dados["produtos"] = getAllProducts();
 		exibir("produto/listar", $dados);
 	}
 
+	/** anon */
 	function visualizar($id) {
 		$dados["produto"] = getOneProduct($id);
 		exibir("produto/visualizar", $dados);
 	}
 
+	/** admin */ 
 	function adicionar(){
 		if (ehPost()) {
 			extract($_POST);
@@ -29,6 +31,7 @@
 		}
 	}
 
+	/** admin */
 	function editar($id) {
 		if (ehPost()) {
 			extract($_POST);
@@ -48,6 +51,7 @@
 		}
 	}
 
+	/** admin */
 	function deletar($id){
 		deleteProduct($id);
 		redirecionar("produto/index");

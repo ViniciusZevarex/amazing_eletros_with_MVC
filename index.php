@@ -52,7 +52,7 @@ try {
                 call_user_func_array($action, $params); //chama a funcao passando parametros   
         } else {
                 alert($authMsg, "warning");
-                redirect("login"); die();
+                redirecionar("login"); die();
         }
 
 

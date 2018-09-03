@@ -3,12 +3,12 @@
 /** anon */
 function index() {
     if (ehPost()) {
-        $login = $_POST["login"];
-        $passwd = $_POST["passwd"];
+        $login = $_POST["email"];
+        $passwd = $_POST["senha"];
 
         if (authLogin($login, $passwd)) {
             alert("bem vindo" . $login);
-            redirect("usuario");
+            redirecionar("produto");
         } else {
             alert("usuario ou senha invalidos!");
         }
@@ -20,7 +20,7 @@ function index() {
 function logout() {
     authLogout();
     alert("deslogado com sucesso!");
-    redirecionar("usuario");
+    redirecionar("produto");
 }
 
 ?>

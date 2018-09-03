@@ -10,6 +10,20 @@ function pegarTodosUsuarios() {
     return $tblusuarios;
 }
 
+function pegarUsuarioLogin($email,$senha){
+    $sql = "SELECT * FROM tblusuario WHERE Email = '$email' AND Senha = '$senha'";
+
+    $resultado = mysqli_query($cnx = conexao(), $sql);
+    $tblusuario = mysqli_fetch_array($resultado);
+
+    if (!$resultado) {
+        echo "Não deu certo " . mysqli_error($cnx);
+        die();
+    }
+    
+    return $tblusuario;
+}
+
 function pegarUsuarioPorId($id) {
     $sql = "SELECT * FROM tblusuario WHERE id= $id";
     $resultado = mysqli_query(conexao(), $sql);
@@ -18,7 +32,9 @@ function pegarUsuarioPorId($id) {
 }
 
 function adicionarUsuario($nome_cadastro, $CPF, $email, $senha, $data_nascimento, $pais, $endereco, $sexo){
-    $insert = "INSERT INTO tblUsuario(Nome,Email,Senha,CPF,Pais,endereco,dtNasc) VALUES('$nome_cadastro', '$email', '$senha', '$CPF', '$pais', '$endereco', '$data_nascimento')";
+    $tipoUsuario = "user";
+
+    $insert = "INSERT INTO tblUsuario(Nome,Email,Senha,CPF,Pais,endereco,dtNasc,tipoUsuario) VALUES('$nome_cadastro', '$email', '$senha', '$CPF', '$pais', '$endereco', '$data_nascimento','$tipoUsuario')";
 
     $resultado = mysqli_query($cnx = conexao(),$insert);
     if (!$resultado) {

@@ -1,17 +1,29 @@
 <?php
-
+require_once 'modelo/usuarioModelo.php';
 define('AUTENTICADOR', true);
 
 function authLogin($login, $passwd) {
-    if ($login === "admin" && $passwd == "123") {
-        $_SESSION["auth"] = array("user" => "admin", "role" => "admin");
-        return true;
+    $user = pegarUsuarioLogin($login, $passwd);
+
+    if (!empty($user)) {
+            $_SESSION["auth"] = array(
+                "user" => $user["tipoUsuario"], 
+                "role" => $user["tipoUsuario"],
+                "nome" => $user["Nome"],
+                "codCliente" => $user["CodCliente"]);
+            return true;    
+    }else{
+        return false;
     }
-    if ($login === "user" && $passwd == "123") {
-        $_SESSION["auth"] = array("user" => "user", "role" => "user");
-        return true;
-    }
-    return false;
+
+    // if ($login === "admin@admin" && $passwd == "123") {
+    //     $_SESSION["auth"] = array("user" => "admin", "role" => "admin");
+    //     return true;
+    // }
+    // if ($login === "user@user" && $passwd == "123") {
+    //     $_SESSION["auth"] = array("user" => "user", "role" => "user");
+    //     return true;
+    // }
 }
 
 function authIsLoggedIn() {
@@ -28,5 +40,11 @@ function authLogout() {
 function authGetUserRole() {
     if (authIsLoggedIn()) {
         return $_SESSION["auth"]["role"];
+    }
+}
+
+function pegarUsuarioLogado() {
+    if(isset($_SESSION["auth"])) {
+        return $_SESSION["auth"];    
     }
 }
