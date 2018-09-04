@@ -18,33 +18,32 @@
 				<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
 			</form>
 			<ul class="nav navbar-nav navbar-right">
-
 				<?php if (isset($_SESSION["auth"])) {
-					$usuarioLogado = pegarUsuarioLogado()
-				?>
+					print_r($_SESSION["auth"]);
+					?>
 					<li>
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-								<span class="glyphicon glyphicon-user" aria-hidden="true">
-									<?php echo $usuarioLogado["Nome"] ?>
-								</span>
-								<span class="caret"></span>
-							</a>
-							<ul class="dropdown-menu">
-								<li><a href="<?php echo "usuario.php?id=" . $_SESSION['dados_cliente']['CodCliente']  ?>">Meus Dados</a></li>
-								<li><a href="./login/logout">Logout</a></li>
-							</ul>
-						</li>
-				<?php }else{ ?>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+							<span class="glyphicon glyphicon-user" aria-hidden="true">
+								<?php echo $_SESSION["auth"]["nome"] ?>
+							</span>
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="<?php echo "./usuario/listar/" . $_SESSION['auth']['codCliente']  ?>">Meus Dados</a></li>
+							<li><a href="./login/logout">Logout</a></li>
+						</ul>
+					</li>
+					<?php }else{ ?>
 					<li><a href="./login/">Entre</a></li>
 					<li><a href="./usuario/index"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Cadastre-se</a></li>
-				<?php } ?>
-				<!-- carrinho de compras -->
-				<li><a href="carrinho.php"><span class="glyphicon glyphicon-shopping-cart"></span><span class="badge">
-					<?php echo isset($_SESSION["carrinho"]) ? count($_SESSION["carrinho"]) : 0; ?>
-				</span></a>
-			</li>
-		</ul>
-	</div>
+					<?php } ?>
+					<!-- carrinho de compras -->
+					<li><a href="carrinho.php"><span class="glyphicon glyphicon-shopping-cart"></span><span class="badge">
+						<?php echo isset($_SESSION["carrinho"]) ? count($_SESSION["carrinho"]) : 0; ?>
+					</span></a>
+				</li>
+			</ul>
+		</div>
 
-</div>
+	</div>
 </nav>

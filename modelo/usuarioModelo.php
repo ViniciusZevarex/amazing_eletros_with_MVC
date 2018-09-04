@@ -25,8 +25,14 @@ function pegarUsuarioLogin($email,$senha){
 }
 
 function pegarUsuarioPorId($id) {
-    $sql = "SELECT * FROM tblusuario WHERE id= $id";
-    $resultado = mysqli_query(conexao(), $sql);
+    $sql = "SELECT * FROM tblusuario WHERE CodCliente= '$id'";
+    $resultado = mysqli_query($cnx = conexao(), $sql);
+
+    if (!$resultado) {
+        echo "Erro" . mysqli_error($cnx);
+        die();
+    }
+
     $tblusuario = mysqli_fetch_array($resultado);
     return $tblusuario;
 }
@@ -53,7 +59,7 @@ function editarUsuario($id, $nome, $email) {
     endereco = '$endereco'
     WHERE CodCliente = $id";
 
-    $resultado = mysqli_query($conexao,$update);
+    $resultado = mysqli_query($cnx = conexao(),$update);
     if (!$resultado) {
        echo "Não deu certo " . mysqli_error($conexao);
        die();
@@ -62,7 +68,7 @@ function editarUsuario($id, $nome, $email) {
 
 function deletarUsuario($id) {
     $exclusao   = "DELETE FROM tblusuario WHERE CodCliente = '$id'";
-    $resultado     = mysqli_query($conexao,$exclusao);
+    $resultado     = mysqli_query($cnx = conexao(),$exclusao);
     
     if (!$resultado) {
      echo "Não deu certo " . mysqli_error($cnx);

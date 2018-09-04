@@ -15,15 +15,6 @@ function authLogin($login, $passwd) {
     }else{
         return false;
     }
-
-    // if ($login === "admin@admin" && $passwd == "123") {
-    //     $_SESSION["auth"] = array("user" => "admin", "role" => "admin");
-    //     return true;
-    // }
-    // if ($login === "user@user" && $passwd == "123") {
-    //     $_SESSION["auth"] = array("user" => "user", "role" => "user");
-    //     return true;
-    // }
 }
 
 function authIsLoggedIn() {

@@ -6,21 +6,21 @@
 		<div class="form-group">
 			<label for="nome" class="col-sm-2 control-label">Nome completo:</label>
 			<div class="col-sm-10">
-				<input name="nome_cadastro" type="text" id="nome" class="form-control" placeholder="Insira aqui seu nome completo" aria-describedby="basic-addon2">
+				<input name="nome_cadastro" type="text" id="nome" class="form-control" placeholder="Insira aqui seu nome completo" aria-describedby="basic-addon2" value="<?=@ $usuario['Nome'] ?>">
 			</div>
 		</div>
 
 		<div class="form-group">
 			<label for="CPF_cadastro" class="col-sm-2 control-label">CPF:</label>
 			<div class="col-sm-10">
-				<input name="CPF_cadastro" type="text" id="CPF_cadastro" class="form-control" data-mask="000.000.000-00" placeholder="999.999.999-99" aria-describedby="basic-addon2">
+				<input name="CPF_cadastro" type="text" id="CPF_cadastro" class="form-control" data-mask="000.000.000-00" placeholder="999.999.999-99" aria-describedby="basic-addon2"  value="<?=@ $usuario['CPF'] ?>">
 			</div>
 		</div>
 
 		<div class="form-group">
 			<label for="email_cadastro" class="col-sm-2 control-label">Email:</label>
 			<div class="col-sm-10">
-				<input name="email_cadastro" type="email" id="email_cadastro" class="form-control" placeholder="Insira aqui seu email" aria-describedby="basic-addon2">
+				<input name="email_cadastro" type="email" id="email_cadastro" class="form-control" placeholder="Insira aqui seu email" aria-describedby="basic-addon2"  value="<?=@ $usuario['Email'] ?>">
 			</div>
 		</div>
 
@@ -41,7 +41,8 @@
 		<div class="form-group">
 			<label for="data_nascimento" class="col-sm-2 control-label">Data de nascimento:</label>
 			<div class="col-sm-10">
-				<input name="data_nascimento" type="text" id="data_nascimento" class="form-control" data-mask="00/00/0000" placeholder="DD/MM/AAAA" aria-describedby="basic-addon2">
+				<input name="data_nascimento" type="text" id="data_nascimento" class="form-control" data-mask="00/00/0000" placeholder="DD/MM/AAAA" aria-describedby="basic-addon2"
+				 value="<?=@ $usuario['dtNasc'] ?>">
 			</div>
 		</div>
 
@@ -54,7 +55,7 @@
 		<div class="form-group">
 			<label for="endereco" class="col-sm-2 control-label">Endereço:</label>
 			<div class="col-sm-10">
-				<input name="endereco" type="text" id="endereco" class="form-control" placeholder="Endereco" aria-describedby="basic-addon2">
+				<input name="endereco" type="text" id="endereco" class="form-control" placeholder="Endereco" aria-describedby="basic-addon2" value="<?=@ $usuario['endereco'] ?>">
 			</div>
 		</div>
 

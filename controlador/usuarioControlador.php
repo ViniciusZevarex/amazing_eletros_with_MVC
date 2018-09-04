@@ -7,6 +7,10 @@ function index() {
     exibir("usuario/formulario");
 }
 
+function listar($id){
+    $dados["user"] = pegarUsuarioPorId($id);
+    exibir("usuario/listar",$dados);
+}
 /** anon */
 function adicionar() {
     if (ehPost()) {
@@ -21,6 +25,15 @@ function adicionar() {
 
         if (empty($erros)) {   
             alert(adicionarUsuario($nome_cadastro, $CPF_cadastro, $email_cadastro, $senha_cadastro, $data_nascimento, $pais, $endereco, $sexo));
+
+                $user = pegarUsuarioLogin($email,$senha_cadastro);
+
+                $_SESSION["auth"] = array(
+                    "user" => $user["tipoUsuario"], 
+                    "role" => $user["tipoUsuario"],
+                    "nome" => $user["Nome"],
+                    "codCliente" => $user["CodCliente"]);
+
             redirecionar("produto/index");
         }else{
             print_r($erros);
@@ -29,11 +42,13 @@ function adicionar() {
         exibir("usuario/formulario");
     }
 }
-/** admin */
+/** user */
 function deletar($id) {
+    authLogout();
     alert(deletarUsuario($id));
     redirecionar("usuario/index");
 }
+
 /** user */
 function editar($id) {
     if (ehPost()) {

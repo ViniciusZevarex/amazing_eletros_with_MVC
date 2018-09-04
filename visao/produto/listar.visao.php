@@ -50,6 +50,7 @@
 				<a href="" class="btn btn-default" role="button">
 					Adicionar ao Carrinho
 				</a>
+				<?php /** admin */ ?>
 				<a href="./produto/editar/<?php echo $produto['CodProduto'] ?>" class="btn btn-default" role="button">Editar</a>
 				<a href="./produto/deletar/<?php echo $produto['CodProduto'] ?>" class="btn btn-default" role="button">Deletar</a>
 			</div>
