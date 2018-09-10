@@ -1,7 +1,7 @@
 <div class="container-form col-md-7 col-md-offset-2" id="form_cadastro">
-	<h2 class="text-center title-section">Cadastre-se</h2>
+	<h2 class="text-center title-section">INSIRA SEUS DADOS PARA CONTINUAR</h2>
 
-	<form class="form-horizontal center-block" action="usuario/adicionar" method="post">
+	<form class="form-horizontal center-block" action="" method="post">
 
 		<div class="form-group">
 			<label for="nome" class="col-sm-2 control-label">Nome completo:</label>
@@ -37,12 +37,13 @@
 				<input name="confirmar_senha" type="password" id="confirmar_senha" class="form-control" placeholder="Confirme sua senha" aria-describedby="basic-addon2">
 			</div>
 		</div>
+	
 
 		<div class="form-group">
 			<label for="data_nascimento" class="col-sm-2 control-label">Data de nascimento:</label>
 			<div class="col-sm-10">
 				<input name="data_nascimento" type="text" id="data_nascimento" class="form-control" data-mask="00/00/0000" placeholder="DD/MM/AAAA" aria-describedby="basic-addon2"
-				 value="<?=@ $usuario['dtNasc'] ?>">
+				 value="<?=@ tratarData($usuario['dtNasc']) ?>">
 			</div>
 		</div>
 

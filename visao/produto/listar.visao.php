@@ -37,23 +37,28 @@
 <h1 class="text-center">CONFIRA ESTAS OFERTAS EXCLUSIVAS <span class="glyphicon glyphicon glyphicon-circle-arrow-down"></span></h1>
 
 <?php foreach ($produtos as $produto) {?>
-	<div class="col-sm-3 col-md-4">
-		<div class="thumbnail">
-			<img class="imagem-produto" src="<?php echo $produto['Imagem'] ?>">
-			<div class="caption">
-				<h3><?php echo $produto['NomeProduto'] ?></h3>
-				<ul class="list-group">
-					<li class="list-group-item"><?php echo "À vista: " . $produto['Preco'] . " R$"; ?></li>
-					<li class="list-group-item"><?php echo "À prazo: 12x de " . number_format($produto['Preco']/12, 2) . " R$"; ?></li>
-				</ul>
-				<a href="./produto/visualizar/<?php echo $produto['CodProduto'] ?>" class="btn btn-primary" role="button">Ver produto</a>
-				<a href="" class="btn btn-default" role="button">
-					Adicionar ao Carrinho
-				</a>
-				<?php /** admin */ ?>
+<div class="col-sm-3 col-md-4">
+	<div class="thumbnail">
+		<img class="imagem-produto" src="<?php echo $produto['Imagem'] ?>">
+		<div class="caption">
+			<h3><?php echo $produto['NomeProduto'] ?></h3>
+			<ul class="list-group">
+				<li class="list-group-item"><?php echo "À vista: " . $produto['Preco'] . " R$"; ?></li>
+				<li class="list-group-item"><?php echo "À prazo: 12x de " . number_format($produto['Preco']/12, 2) . " R$"; ?></li>
+			</ul>
+			<a href="./produto/visualizar/<?php echo $produto['CodProduto'] ?>" class="btn btn-primary" role="button">Ver produto</a>
+			<a href="./carrinho/adicionar/<?= $produto['CodProduto']?>" class="btn btn-default" role="button">
+				Adicionar ao Carrinho
+			</a>
+			<?php if (isset($_SESSION["auth"])) {
+				if ($_SESSION["auth"]["user"] == "admin") { ?>
+
 				<a href="./produto/editar/<?php echo $produto['CodProduto'] ?>" class="btn btn-default" role="button">Editar</a>
 				<a href="./produto/deletar/<?php echo $produto['CodProduto'] ?>" class="btn btn-default" role="button">Deletar</a>
-			</div>
+				
+			<?php }	
+			} ?>
 		</div>
 	</div>
+</div>
 <?php } ?>

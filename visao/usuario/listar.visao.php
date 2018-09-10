@@ -1,4 +1,3 @@
-<?php print_r($user) ?>
 <div class="panel panel-default">
 
   <div class="panel-heading"><h1 class="text-center">Dados do Cliente</h1></div>

@@ -23,4 +23,10 @@ function assinalarCampo($valorA, $valorB) {
     }
 }
 
+function tratarData($data) {
+    $dataExplode = explode("-", $data);
+    $dataFormatadaBR = $dataExplode[2] . "/" . $dataExplode[1]  . "/" . $dataExplode[0];
+    return $dataFormatadaBR;
+}
+
 ?>

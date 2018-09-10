@@ -18,9 +18,7 @@
 				<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
 			</form>
 			<ul class="nav navbar-nav navbar-right">
-				<?php if (isset($_SESSION["auth"])) {
-					print_r($_SESSION["auth"]);
-					?>
+				<?php if (isset($_SESSION["auth"])) {?>
 					<li>
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 							<span class="glyphicon glyphicon-user" aria-hidden="true">
@@ -35,10 +33,10 @@
 					</li>
 					<?php }else{ ?>
 					<li><a href="./login/">Entre</a></li>
-					<li><a href="./usuario/index"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Cadastre-se</a></li>
+					<li><a href="./usuario/adicionar/"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Cadastre-se</a></li>
 					<?php } ?>
 					<!-- carrinho de compras -->
-					<li><a href="carrinho.php"><span class="glyphicon glyphicon-shopping-cart"></span><span class="badge">
+					<li><a href="./carrinho/index"><span class="glyphicon glyphicon-shopping-cart"></span><span class="badge">
 						<?php echo isset($_SESSION["carrinho"]) ? count($_SESSION["carrinho"]) : 0; ?>
 					</span></a>
 				</li>

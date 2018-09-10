@@ -7,7 +7,7 @@ $uri = explode("/", $_SERVER["REQUEST_URI"]); //explore a URL
 $controllerName = $uri[2]; //coloca como padrao: nomeProjeto/controlador/acao/parametros
 
 if(!$controllerName && CONTROLADOR_PADRAO) {
-	$controllerName = CONTROLADOR_PADRAO;
+    $controllerName = CONTROLADOR_PADRAO;
 }
 
 $controllerFileName = "controlador/" . $controllerName . "Controlador.php";
@@ -23,34 +23,49 @@ $params = (count($uri) > 4) ? array_slice($uri, 4) : array(); //pega os parametr
 try {
     if(is_callable($action)){ //a funcao existe?
 
-        $released = true;
-
         if(defined('AUTENTICADOR')) {
 
             $role = getRoleOfControllerAction($action);
+            $roles = explode(",", $role);
+
+
             $userRole = authGetUserRole();
 
-            if(!empty($role) && $role !== $userRole) {
-                    //regra nao eh igual a encontrada na action do controlador
-                    $released = false;
-                    $authMsg = "Nao tem permissao para acessar essa funcionalidade";
-            }
+            foreach ($roles as $role) {
+                
+                $released = true;
+                $role = trim($role);
 
-            if(empty($role) && !authIsLoggedIn()) {
-                    $released = false;
-                    $authMsg = "Voce precisa autenticar-se para acessar!";
-            }
+                if(!empty($role) && $role !== $userRole) {
+                       // echo "role=$role  userrole=$userRole <BR><BR>";
+                        //regra nao eh igual a encontrada na action do controlador
+                        $released = false;
+                        $authMsg = "Nao tem permissao para acessar essa funcionalidade";
 
-            if(!empty($role) && $role == "anon") {
-                    //acesso anonimo
-                    $released = true;
+                }
+
+                if(empty($role) && !authIsLoggedIn()) {
+                        $released = false;
+                        $authMsg = "Voce precisa autenticar-se para acessar!";
+                }
+
+                if(!empty($role) && $role == "anon") {
+                        //acesso anonimo
+                        $released = true;
+                }
+
+                if($released) { 
+                    break;
+                }
             }
 
         }
 
         if($released) {
+                //echo "acesso permitido";
                 call_user_func_array($action, $params); //chama a funcao passando parametros   
         } else {
+                //echo "acesso negado";
                 alert($authMsg, "warning");
                 redirecionar("login"); die();
         }

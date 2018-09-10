@@ -49,19 +49,21 @@ function adicionarUsuario($nome_cadastro, $CPF, $email, $senha, $data_nascimento
     }
 }
 
-function editarUsuario($id, $nome, $email) {
+function editarUsuario($id,$nome, $CPF, $email_cadastro, $senha, $data_nascimento, $pais, $endereco, $sexo) {
+
     $update = "UPDATE tblusuario SET 
     Nome = '$nome',
-    Email = '$email',
+    CPF = '$CPF',
+    Email = '$email_cadastro',
     Senha = '$senha',
-    ConfirmarSenha = '$confirmaSenha',
-    Pais = '$Pais',
-    endereco = '$endereco'
+    Pais = '$pais',
+    endereco = '$endereco',
+    dtNasc = '$data_nascimento'
     WHERE CodCliente = $id";
 
     $resultado = mysqli_query($cnx = conexao(),$update);
     if (!$resultado) {
-       echo "Não deu certo " . mysqli_error($conexao);
+       echo "Não deu certo " . mysqli_error($cnx);
        die();
    }
 }
