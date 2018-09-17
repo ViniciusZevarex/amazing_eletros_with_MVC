@@ -6,6 +6,7 @@
 					<h1 class="text-center">CARRINHO DE COMPRAS <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></h1>
 				</div>
 				<div class="panel-body">
+				<?php if (isset($produtos)) { ?>
 					<table class="table">
 						<tr>
 							<th>IMAGEM</th>
@@ -16,18 +17,22 @@
 						</tr>	
 						<!-- products date -->
 						<?php 
-							for ($i=0; $i < count($_SESSION["carrinho"]); $i++) {
-								$Idproduto = $_SESSION["carrinho"][$i];
-								$dados = searchForCategoria($Idproduto);
+							$i = 0;
+							foreach ($produtos as $produto) {
 						?>
 							<tr>
-								<td><img class="imagem-produto" src="<?php echo $dados['Imagem'] ?>"></td>
-								<td><?php echo $dados['NomeProduto'] ?></td>
+								<td><img class="imagem-produto" src="<?= $produto['Imagem'] ?>"></td>
+								<td><?= $produto['NomeProduto'] ?></td>
 								<td></td>
-								<td><?php echo $dados["Preco"] . " R$"; ?></td>
-								<td><a href="<?php echo 'biblioteca/delete_produto_carrinho.php?produto=' . $i ?>">excluir</a></td>
+								<td><?= $produto["Preco"] . " R$"; ?></td>
+								<td><a href="<?='carrinho/deletar/' . $i?>">excluir</a></td>
 							</tr>
-						<?php } ?>
+						<?php 
+							$i++;}
+							}else{
+								echo "<h1 class='text-center'>Não há produtos existentes no seu carrinho!</h1>";
+							}
+						?>
 
 					</table>
 				</div>

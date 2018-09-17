@@ -12,7 +12,7 @@ function alertGetMessages() {
     }
 }
 
-function alert($msg, $level = "danger") {
+function alert($msg, $level) {
     $_SESSION["alertLevel"] = $level;
     $_SESSION["alert"][] = $msg;
 }
@@ -28,7 +28,7 @@ function alertComponentRender() {
         $msgs = implode(',', $_SESSION["alert"]);
         $alertLevel = $_SESSION["alertLevel"];
 
-        $html = '<div class="alert alert-warning alert-' . $alertLevel . '" role="alert">';
+        $html = '<div class="alert alert-'. $alertLevel .' alert-' . $alertLevel . '" role="alert">';
         $html .= '<strong>' . $msgs . '</strong>';
         $html .= '</div>';
 

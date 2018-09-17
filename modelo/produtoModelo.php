@@ -50,23 +50,50 @@ require_once "bibliotecas/mysqli.php";
 		}
 
 		function searchForNomeProduto($nomeProduto) {
-			$command 	= "SELECT * FROM tblproduto WHERE NomeProduto LIKE '%{$_GET["pesquisa"]}%'";
-			$query 		= mysqli_query(conexao(), $command);
-			$product 	= mysqli_fetch_assoc($query);
-
-			return $products;
-		}
-
-		function searchForCategoria($categoriaProduto){
-			$command 	= "SELECT * FROM tblproduto WHERE CodCategoria = " . $categoriaProduto;
+			$command 	= "SELECT * FROM tblproduto WHERE NomeProduto LIKE '%$nomeProduto%'";
 			$query 		= mysqli_query(conexao(), $command);
 			$products 	= array();
 
 			while ($product = mysqli_fetch_assoc($query)) {
 				$products[] = $product;
 			}
+			
+			return $products;
+		}
+
+		function searchForCategoria($categoriaProduto){
+			$command 	= "SELECT * FROM tblproduto WHERE CodCategoria = " . $categoriaProduto;
+			$query 		= mysqli_query($cnx = conexao(), $command);
+			$products 	= array();
+
+			if(!$query) {
+				die(mysqli_error($cnx));
+			}
+
+			while ($product = mysqli_fetch_assoc($query)) {
+				$products[] = $product;
+			}
 
 			return $products; 
+		}
+
+		function pegarVariosProdutosPorId($carrinhoProdutos){
+			for ($i=0; $i < count($carrinhoProdutos); $i++) {
+				$id = $carrinhoProdutos[$i];
+
+				$comando 	= "SELECT * FROM tblproduto WHERE CodProduto = '$id'";
+				$query 	= mysqli_query($cnx = conexao(),$comando); 
+				
+				if(!$query) {
+					die(mysqli_error($cnx));
+				}
+
+				$produtos[] = mysqli_fetch_assoc($query); 
+			}
+
+			if(!empty($produtos)){
+				return $produtos;
+			}
 		}
 	/**
 	 *

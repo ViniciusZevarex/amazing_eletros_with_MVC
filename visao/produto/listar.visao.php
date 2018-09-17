@@ -56,7 +56,7 @@
 				<a href="./produto/editar/<?php echo $produto['CodProduto'] ?>" class="btn btn-default" role="button">Editar</a>
 				<a href="./produto/deletar/<?php echo $produto['CodProduto'] ?>" class="btn btn-default" role="button">Deletar</a>
 				
-			<?php }	
+				<?php }	
 			} ?>
 		</div>
 	</div>

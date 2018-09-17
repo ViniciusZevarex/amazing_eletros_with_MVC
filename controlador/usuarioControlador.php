@@ -23,19 +23,20 @@ function adicionar() {
 
         $erros = validacaoCadastro($nome_cadastro, $CPF_cadastro, $email_cadastro, $senha_cadastro,$confirmar_senha,$dia,$mes,$ano, $pais, $endereco, $sexo,$data);
 
-        if (empty($erros)) {   
-            alert(adicionarUsuario($nome_cadastro, $CPF_cadastro, $email_cadastro, $senha_cadastro, $data_nascimento, $pais, $endereco, $sexo));
+        if (empty($erros)) {
+            adicionarUsuario($nome_cadastro, $CPF_cadastro, $email_cadastro, $senha_cadastro, $data_nascimento, $pais, $endereco, $sexo);   
+            alert("Usuario cadastrado com sucesso:<br>","success");
 
-            $user = pegarUsuarioLogin($email,$senha_cadastro);
+            $user = pegarUsuarioLogin($email_cadastro,$senha_cadastro);
 
             if (authLogin($email_cadastro, $senha_cadastro)) {
-                alert("bem vindo" . $login);
+                alert("bem vindo" . $nome_cadastro,"success");
                 redirecionar("produto");
             }
 
             redirecionar("produto/index");
         }else{
-            alert(implode(",<br>", $erros));
+            alert(implode(",<br>", $erros),"danger");
             redirecionar("usuario/adicionar");
         }
     } else {
@@ -45,7 +46,7 @@ function adicionar() {
 /** user, admin */
 function deletar($id) {
     authLogout();
-    alert(deletarUsuario($id));
+    alert(deletarUsuario($id),"success");
     redirecionar("usuario/index");
 }
 
@@ -61,14 +62,15 @@ function editar($id) {
 
         $erros = validacaoCadastro($nome_cadastro, $CPF_cadastro, $email_cadastro, $senha_cadastro,$confirmar_senha,$dia,$mes,$ano, $pais, $endereco, $sexo,$data);
 
-        if (empty($erros)) {   
-            alert(editarUsuario($id,$nome_cadastro, $CPF_cadastro, $email_cadastro, $senha_cadastro, $data_nascimento, $pais, $endereco, $sexo));
+        if (empty($erros)) { 
+            editarUsuario($id,$nome_cadastro, $CPF_cadastro, $email_cadastro, $senha_cadastro, $data_nascimento, $pais, $endereco, $sexo);
+            $_SESSION["auth"]["nome"] = $nome_cadastro;
 
-            alert("usuarios editados com sucesso");
+            alert("usuarios editados com sucesso","success");
             redirecionar("usuario/listar/$id");
         }else{
-            alert(implode(",<br>", $erros));
-            redirecionar("usuario/editar");
+            alert(implode(",<br>", $erros),"danger");
+            redirecionar("usuario/editar/$id");
         }
     } else {
         $dados['usuario'] = pegarUsuarioPorId($id);

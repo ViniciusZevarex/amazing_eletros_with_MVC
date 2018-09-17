@@ -11,7 +11,7 @@
 		</div>
 
 		<div class="collapse navbar-collapse" id="navbar-collapse">
-			<form class="navbar-form navbar-left" action="index.php" method="get">
+			<form class="navbar-form navbar-left" action="./produto/search/" method="post">
 				<div class="form-group">
 					<input type="text" class="form-control" name="pesquisa" placeholder="Procura algo em especial?">
 				</div>
@@ -21,8 +21,8 @@
 				<?php if (isset($_SESSION["auth"])) {?>
 					<li>
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+								<?= $_SESSION["auth"]["nome"] ?>
 							<span class="glyphicon glyphicon-user" aria-hidden="true">
-								<?php echo $_SESSION["auth"]["nome"] ?>
 							</span>
 							<span class="caret"></span>
 						</a>

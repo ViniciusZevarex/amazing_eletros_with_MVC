@@ -2,11 +2,23 @@
 	require "modelo/produtoModelo.php";
 	require "modelo/categoriaModelo.php";
 	require "servicos/uploadImagemServico.php";
+	
 	/** anon */
 	function index(){
 		$dados["produtos"] = getAllProducts();
 		exibir("produto/listar", $dados);
 	}
+
+	/** anon */
+	function search(){
+		if(ehPost()){
+			extract($_POST);
+			$dados["produtos"] = searchForNomeProduto($pesquisa);
+			exibir("produto/listar", $dados);
+		}else{
+
+		}
+	}	
 
 	/** anon */
 	function visualizar($id) {
@@ -41,7 +53,9 @@
 
 			$diretorio_imagem 	= uploadImagem($imagem_name, $imagem_tmp);
 			//atualizar
-			alert(updateDataProduct($id,$codCategoria,$nomeProduto,$precoProduto,$descricaoProduto, $diretorio_imagem));
+			updateDataProduct($id,$codCategoria,$nomeProduto,$precoProduto,$descricaoProduto, $diretorio_imagem);
+			
+			alert("Produtos deletados com sucesso!!!","success");
 
 			redirecionar("produto/index");
 		} else {

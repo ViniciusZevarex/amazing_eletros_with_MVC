@@ -7,10 +7,10 @@ function index() {
         $passwd = $_POST["senha"];
 
         if (authLogin($login, $passwd)) {
-            alert("bem vindo" . $login);
+            alert("bem vindo" . $login,"success");
             redirecionar("produto");
         } else {
-            alert("usuario ou senha invalidos!");
+            alert("usuario ou senha invalidos!","danger");
         }
     }
     exibir("login/index");
@@ -19,7 +19,7 @@ function index() {
 /** anon */
 function logout() {
     authLogout();
-    alert("deslogado com sucesso!");
+    alert("deslogado com sucesso!","success");
     redirecionar("produto");
 }
 
