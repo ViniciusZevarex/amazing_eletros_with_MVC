@@ -59,6 +59,16 @@ img.imagem-produto{
 	margin-bottom: 1%;
 	background-color: white;
 }
+
+.sidebar{
+    background-color: white;
+    padding: 5%;
+}
+
+.panel-listar-produtos{
+    height: 70vh;
+    overflow: auto;
+}
 /* for mobile */
 @media screen and (max-width: 970px){
 	.section-right{

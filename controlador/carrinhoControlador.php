@@ -13,7 +13,7 @@
 	/** anon, admin, user */
 	function adicionar($id){
 		addCarrinho($id);
-		exibir("produto/index");
+		redirecionar("carrinho");
 	}
 
 	/** anon, admin, user */
