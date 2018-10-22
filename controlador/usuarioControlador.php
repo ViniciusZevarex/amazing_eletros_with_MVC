@@ -21,10 +21,10 @@ function adicionar() {
         $ano = $data[2];
         $data_nascimento = "$ano-$mes-$dia";
 
-        $erros = validacaoCadastro($nome_cadastro, $CPF_cadastro, $email_cadastro, $senha_cadastro,$confirmar_senha,$dia,$mes,$ano, $pais, $endereco, $sexo,$data);
+        $erros = validacaoCadastro($nome_cadastro, $CPF_cadastro, $email_cadastro, $senha_cadastro,$confirmar_senha,$dia,$mes,$ano, $pais, $estado,$municipio,  $endereco, $sexo,$data);
 
         if (empty($erros)) {
-            adicionarUsuario($nome_cadastro, $CPF_cadastro, $email_cadastro, $senha_cadastro, $data_nascimento, $pais, $endereco, $sexo);   
+            adicionarUsuario($nome_cadastro, $CPF_cadastro, $email_cadastro, $senha_cadastro, $data_nascimento, $pais, $estado,$municipio,$endereco, $sexo);   
             alert("Usuario cadastrado com sucesso:<br>","success");
 
             $user = pegarUsuarioLogin($email_cadastro,$senha_cadastro);

@@ -53,6 +53,21 @@
 				<?php include("./bibliotecas/listaPaises.php") ?>
 			</div>
 		</div>
+            
+                <div class="form-group">
+			<label for="estado" class="col-sm-2 control-label">Estado:</label>
+			<div class="col-sm-10">
+				<input name="estado" type="text" id="estado" class="form-control" placeholder="Estado" aria-describedby="basic-addon2" value="<?=@ $usuario['Estado'] ?>">
+			</div>
+		</div>
+            
+                <div class="form-group">
+			<label for="municipio" class="col-sm-2 control-label">Municipio:</label>
+			<div class="col-sm-10">
+				<input name="municipio" type="text" id="municipio" class="form-control" placeholder="Municipio" aria-describedby="basic-addon2" value="<?=@ $usuario['Municipio'] ?>">
+			</div>
+		</div>
+            
 		<div class="form-group">
 			<label for="endereco" class="col-sm-2 control-label">Endereço:</label>
 			<div class="col-sm-10">

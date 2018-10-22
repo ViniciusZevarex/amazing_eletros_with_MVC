@@ -16,7 +16,7 @@ function produto() {
         $imagem_tmp = $_FILES["imagemProduto"]["tmp_name"];
 
         $diretorio_imagem = uploadImagem($imagem_name, $imagem_tmp);
-        $msgRetorno = insertProduct($codCategoria, $nomeProduto, $precoProduto, $descricaoProduto, $diretorio_imagem);
+        $msgRetorno = insertProduct($codCategoria, $nomeProduto, $precoProduto,$estoque, $descricaoProduto, $diretorio_imagem);
 
         redirecionar("dashboard/produto");
     } else {

@@ -7,9 +7,9 @@ require_once "bibliotecas/mysqli.php";
   Create
  *
  * */
-function insertProduct($codCategoria, $nomeProduto, $precoProduto, $descricaoProduto, $diretorio_imagem) {
+function insertProduct($codCategoria, $nomeProduto, $precoProduto,$estoque, $descricaoProduto, $diretorio_imagem) {
     //imagem do produto
-    $insert = "INSERT INTO tblproduto(CodCategoria,nomeProduto,Preco,DescricaoProduto,Imagem) VALUES ($codCategoria,'$nomeProduto','$precoProduto','$descricaoProduto','$diretorio_imagem')";
+    $insert = "INSERT INTO tblproduto(CodCategoria,nomeProduto,Preco,Estoque,DescProduto,Imagem) VALUES ($codCategoria,'$nomeProduto','$precoProduto','$estoque','$descricaoProduto','$diretorio_imagem')";
 
     $consulta = mysqli_query($cnx = conexao(), $insert);
 
@@ -103,9 +103,9 @@ function pegarVariosProdutosPorId($carrinhoProdutos) {
   Update
  *
  * */
-function updateDataProduct($codProduto, $codCategoria, $nomeProduto, $precoProduto, $descricaoProduto, $diretorio_imagem) {
+function updateDataProduct($codProduto, $codCategoria, $nomeProduto, $precoProduto, $estoque,$descricaoProduto, $diretorio_imagem) {
 
-    $update = "UPDATE tblproduto SET CodProduto = '$codProduto',CodCategoria = '$codCategoria',nomeProduto = '$nomeProduto',Preco = '$precoProduto',DescricaoProduto = '$descricaoProduto',Imagem = '$diretorio_imagem' WHERE CodProduto = $codProduto";
+    $update = "UPDATE tblproduto SET CodProduto = '$codProduto',CodCategoria = '$codCategoria',nomeProduto = '$nomeProduto',Preco = '$precoProduto',Estoque = '$estoque',DescProduto = '$descricaoProduto',Imagem = '$diretorio_imagem' WHERE CodProduto = $codProduto";
 
     $update = mysqli_query(conexao(), $update);
 

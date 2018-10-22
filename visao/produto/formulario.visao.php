@@ -22,11 +22,18 @@
             <input type="number" class="form-control" name="precoProduto" id="precoProduto" placeholder="PREÇO DO PRODUTO" value="<?= @ $produto['Preco'] ?>">
         </div>
     </div>
-
+    
+    <div class="form-group">
+        <label for="estoque" class="col-sm-2 control-label">Estoque</label>
+        <div class="col-sm-10">
+            <input type="number" class="form-control" name="estoque" id="estoque" placeholder="Estoque" value="<?= @ $produto['Estoque'] ?>">
+        </div>
+    </div>
+    
     <div class="form-group">
         <label for="descricaoProduto" class="col-sm-2 control-label">DESCRIÇÃO</label>
         <div class="col-sm-10 ">
-            <textarea class="form-control" rows="3" name="descricaoProduto" id="descricaoProduto" placeholder="DESCRIÇÃO DO PRODUTO"><?= @ $produto["DescricaoProduto"] ?></textarea>
+            <textarea class="form-control" rows="3" name="descricaoProduto" id="descricaoProduto" placeholder="DESCRIÇÃO DO PRODUTO"><?= @ $produto["DescProduto"] ?></textarea>
         </div>
     </div>
     <!-- Imagens-->

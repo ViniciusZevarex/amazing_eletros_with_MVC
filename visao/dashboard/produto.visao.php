@@ -39,7 +39,7 @@
                                         <td><img class="imagem-produto" src="<?= $produto['Imagem'] ?>"></td>
                                         <td><?= $produto['NomeProduto'] ?></td>
                                         <td><?= $produto["Preco"] . " R$"; ?></td>
-                                        <td><?= $produto["DescricaoProduto"]; ?></td>
+                                        <td><?= $produto["DescProduto"]; ?></td>
                                         <td></td>
                                         <td><a href="./produto/editar/<?= $produto['CodProduto'] ?>" class="btn btn-default" role="button">Editar</a></td>
                                         <td><a href="./produto/deletar/<?= $produto['CodProduto'] ?>" class="btn btn-default" role="button">Deletar</a></td>
@@ -87,7 +87,12 @@
                                             <input type="number" class="form-control" name="precoProduto" id="precoProduto" placeholder="PREÇO DO PRODUTO">
                                         </div>
                                     </div>
-
+                                    <div class="form-group">
+                                        <label for="estoque" class="col-sm-2 control-label">Estoque</label>
+                                        <div class="col-sm-10">
+                                            <input type="number" class="form-control" name="estoque" id="estoque" placeholder="Estoque">
+                                        </div>
+                                    </div>
                                     <div class="form-group">
                                         <label for="descricaoProduto" class="col-sm-2 control-label">DESCRIÇÃO</label>
                                         <div class="col-sm-10 ">

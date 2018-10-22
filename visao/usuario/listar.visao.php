@@ -20,16 +20,26 @@
                 <td><?php echo $user["Email"]; ?></td> 
             </tr> 
             <tr> 
+                <th scope="row">Pais</th> 
+                <td><?php echo $user["Pais"]; ?></td> 
+            </tr>
+            <tr> 
+                <th scope="row">Estado</th> 
+                <td><?php echo $user["Estado"]; ?></td> 
+            </tr> 
+            <tr> 
+                <th scope="row">Municipio</th> 
+                <td><?php echo $user["Municipio"
+                    . ""]; ?></td> 
+            </tr> 
+            <tr> 
                 <th scope="row">Endereço</th> 
                 <td><?php echo $user["endereco"]; ?></td> 
             </tr>
-            <tr> 
-                <th scope="row">Pais</th> 
-                <td><?php echo $user["Pais"]; ?></td> 
-            </tr>  
+             
             <tr> 
                 <th scope="row">Data Nascimento</th> 
-                <td><?php echo $user["dtNasc"]; ?></td> 
+                <td><?php echo $user["dtNascimento"]; ?></td> 
             </tr> 
 
         </tbody>

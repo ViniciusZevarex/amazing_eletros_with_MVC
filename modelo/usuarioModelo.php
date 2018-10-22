@@ -37,10 +37,10 @@ function pegarUsuarioPorId($id) {
     return $tblusuario;
 }
 
-function adicionarUsuario($nome_cadastro, $CPF, $email, $senha, $data_nascimento, $pais, $endereco, $sexo){
+function adicionarUsuario($nome, $CPF, $email, $senha, $data_nascimento, $pais, $estado,$municipio,$endereco, $sexo){
     $tipoUsuario = "user";
 
-    $insert = "INSERT INTO tblUsuario(Nome,Email,Senha,CPF,Pais,endereco,dtNasc,tipoUsuario) VALUES('$nome_cadastro', '$email', '$senha', '$CPF', '$pais', '$endereco', '$data_nascimento','$tipoUsuario')";
+    $insert = "INSERT INTO tblUsuario(Nome,Email,Senha,CPF,Pais,Estado,Municipio,endereco,dtNascimento,tipoUsuario,Sexo) VALUES('$nome', '$email', '$senha', '$CPF', '$pais','$estado','$municipio', '$endereco', '$data_nascimento','$tipoUsuario','$sexo')";
 
     $resultado = mysqli_query($cnx = conexao(),$insert);
     if (!$resultado) {
@@ -58,7 +58,7 @@ function editarUsuario($id,$nome, $CPF, $email_cadastro, $senha, $data_nasciment
     Senha = '$senha',
     Pais = '$pais',
     endereco = '$endereco',
-    dtNasc = '$data_nascimento'
+    dtNascimento = '$data_nascimento'
     WHERE CodCliente = $id";
 
     $resultado = mysqli_query($cnx = conexao(),$update);
