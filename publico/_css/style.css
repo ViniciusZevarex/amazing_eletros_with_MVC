@@ -69,6 +69,14 @@ img.imagem-produto{
     height: 70vh;
     overflow: auto;
 }
+.border-right-divisao{
+    border-right: 1px solid #b4b4b4; 
+}
+.border-top{
+    border-top: 1px solid #b4b4b4; 
+}
+
+
 /* for mobile */
 @media screen and (max-width: 970px){
 	.section-right{

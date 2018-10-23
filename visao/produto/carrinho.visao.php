@@ -55,7 +55,7 @@
                         </form>
                     </div>
                 </div>
-                <a href="#" class="btn btn-primary" role="button">COMPRAR</a>
+                <a href="./pedido/index" class="btn btn-primary" role="button">COMPRAR</a>
             </div>
 
         </div>
