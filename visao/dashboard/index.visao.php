@@ -4,11 +4,11 @@
             <div class="sidebar content-box" style="display: block;">
                 <ul class="nav">
                     <!-- Main menu -->
-                    <li class="current"><a href="index.html"><i class="glyphicon glyphicon-home"></i> Home</a></li>
-                    <li><a href="./dashboard/produto/"><i class="glyphicon glyphicon-shopping-cart"></i> Produtos</a></li>
+                    <li class="current"><a href="./produto/index/"><i class="glyphicon glyphicon-home"></i> Home</a></li>
+                    <li><a href="./dashboard/produto/"><i class="glyphicon glyphicon-shopping-cart"></i>Produtos</a></li>
                     <li><a href="calendar.html"><i class="glyphicon glyphicon-indent-left">Estatística</i></a></li>
                     <li><a href="tables.html"><i class="glyphicon glyphicon-list"></i> Tabelas</a></li>
-                    <li><a href="forms.html"><i class="glyphicon glyphicon-tasks"></i> Usuarios</a></li>
+                    <li><a href="./dashboard/usuario/"><i class="glyphicon glyphicon-tasks"></i>Usuarios</a></li>
                 </ul>
             </div>
         </div>

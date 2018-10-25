@@ -1,4 +1,4 @@
-<?php
+<?php 
 require "./modelo/produtoModelo.php";
 require "modelo/categoriaModelo.php";
 require "servicos/uploadImagemServico.php";
@@ -24,6 +24,19 @@ function produto() {
         $dados["categorias"] = getCategorias();
     }
     exibir("dashboard/produto", $dados);
+}
+
+/** anon */
+function usuario(){
+   if (ehPost()) {
+        extract($_POST);
+        $msgRetorno = adicionarUsuario($nome, $CPF, $email, $senha, $data_nascimento, $pais, $estado, $municipio, $endereco, $sexo);
+
+        redirecionar("dashboard/usuario");
+    } else {
+        $dados["usuarios"] = pegarTodosUsuarios();
+    }
+    exibir("dashboard/usuario", $dados);
 }
 
 function editar() {
