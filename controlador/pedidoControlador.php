@@ -27,5 +27,10 @@ function finalizar($codCliente){
 
     $id_pedido = inserirPedido($id_cliente, $dadosCliente['CPF'], $dadosCliente['Pais'],$dadosCliente['Estado'],$dadosCliente['Municipio'],$dadosCliente['endereco'],$data_pedido,$_SESSION["carrinho"]["total"]);
 
-    echo $id_pedido;
+    foreach ($dados["produtos"] as $produto) {
+        inserirProdutosPedidoId($id_pedido,$produto["CodProduto"],$produto["quantidade"]);
+        updateEstoqueProduto($produto["CodProduto"], $produto["quantidade"], $produto["Estoque"]);
+    }
+
+    
 }

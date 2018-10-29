@@ -16,3 +16,15 @@ function inserirPedido($codCliente, $CPF, $pais,$estado,$municipio,$endereco,$dt
 
 	return $id;
 }
+
+function inserirProdutosPedidoId($codPedido,$codProduto,$quantidade){
+	$comando = "INSERT INTO tblProdutoPedido(CodProduto,CodPedido,Quantidade) VALUES ('$codPedido','$codProduto','$quantidade')";
+
+	$query = mysqli_query($cnx = conexao(), $comando);
+	$id = mysqli_insert_id($cnx);
+
+	if (!$query) {
+		echo "Erro: " . mysqli_error($cnx);
+		die();
+	}
+}

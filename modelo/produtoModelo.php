@@ -116,6 +116,12 @@ function updateDataProduct($codProduto, $codCategoria, $nomeProduto, $precoProdu
     }
 }
 
+function updateEstoqueProduto($codProduto, $quantidade, $estoque_atual){
+    $estoque = $estoque_atual - $quantidade;
+    $comando = "UPDATE tblproduto SET Estoque = '$estoque' WHERE CodProduto = $codProduto";
+
+}
+
 /**
  *
   Delete

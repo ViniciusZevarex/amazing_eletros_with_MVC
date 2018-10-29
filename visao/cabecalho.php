@@ -37,7 +37,7 @@
 					<?php } ?>
 					<!-- carrinho de compras -->
 					<li><a href="./carrinho/index"><span class="glyphicon glyphicon-shopping-cart"></span><span class="badge">
-						<?php echo isset($_SESSION["carrinho"]) ? count($_SESSION["carrinho"]) : 0; ?>
+						<?php echo isset($_SESSION["carrinho"]) ? count($_SESSION["carrinho"])-1 : 0; ?>
 					</span></a>
 				</li>
 			</ul>

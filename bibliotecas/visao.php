@@ -29,4 +29,11 @@ function tratarData($data) {
     return $dataFormatadaBR;
 }
 
+function morrer($dados) {
+    echo "<pre>";
+    print_r($dados);
+    echo "</pre>";
+    die();
+}
+
 ?>

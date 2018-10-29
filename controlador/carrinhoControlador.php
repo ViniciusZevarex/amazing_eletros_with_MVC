@@ -6,11 +6,19 @@ require "./modelo/produtoModelo.php";
 /** anon, admin, user */
 function index() {
     $carrinhoProdutos = $_SESSION["carrinho"];
-    $dados["produtos"] = pegarVariosProdutosPorId($carrinhoProdutos);
+    $dados["produtos"] = pegarVariosProdutosPorId($carrinhoProdutos);    
     $precoTotal = 0;
 
-    foreach ($dados["produtos"] as $produto) {
-   		$precoTotal += $produto['quantidade']*$produto["Preco"];
+
+    //morrer($dados["produtos"]);
+
+    // unset($_SESSION["carrinho"]);
+    // die();
+
+    if (!empty($_SESSION["carrinho"])) {    
+       foreach ($dados["produtos"] as $produto) {
+      		$precoTotal += $produto['quantidade']*$produto["Preco"];
+       }
     }
 
     $_SESSION["carrinho"]["total"] = $precoTotal;

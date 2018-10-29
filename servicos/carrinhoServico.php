@@ -18,11 +18,14 @@ function addCarrinho($id) {
         }
     }
     
+    echo "<pre>";
+    print_r($_SESSION["carrinho"]);
+
     //se nao existe produto no carrinho, cria um
     if (!$existeProduto) {
-        $produto["id"] = $id;
-        $produto["quantidade"] = 1;
-        $_SESSION["carrinho"][] = $produto;
+        $produto2["id"] = $id;
+        $produto2["quantidade"] = 1;
+        $_SESSION["carrinho"][] = $produto2;
     }
 
 }

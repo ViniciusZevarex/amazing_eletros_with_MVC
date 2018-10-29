@@ -10,7 +10,7 @@
 					<h1 class="product-name"><?php echo $produto['NomeProduto']; ?> <span class="label label-primary">Promoção</span></h1>
 					<div class="panel panel-default">
 						<div class="panel-body">
-							<?php echo $produto["DescricaoProduto"]; ?>
+							<?php echo $produto["DescProduto"]; ?>
 						</div>
 					</div>
 					<div class="panel panel-default">
