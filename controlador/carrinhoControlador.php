@@ -7,7 +7,14 @@ require "./modelo/produtoModelo.php";
 function index() {
     $carrinhoProdutos = $_SESSION["carrinho"];
     $dados["produtos"] = pegarVariosProdutosPorId($carrinhoProdutos);
-    
+    $precoTotal = 0;
+
+    foreach ($dados["produtos"] as $produto) {
+   		$precoTotal += $produto['quantidade']*$produto["Preco"];
+    }
+
+    $_SESSION["carrinho"]["total"] = $precoTotal;
+
     exibir("produto/carrinho", $dados);
 }
 

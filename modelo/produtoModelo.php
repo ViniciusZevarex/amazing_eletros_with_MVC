@@ -79,7 +79,7 @@ function searchForCategoria($categoriaProduto) {
 }
 
 function pegarVariosProdutosPorId($carrinhoProdutos) {
-    for ($i = 0; $i < count($carrinhoProdutos); $i++) {
+    for ($i = 0; $i < count($carrinhoProdutos)-1; $i++) {
         $id = $carrinhoProdutos[$i]["id"];
         $comando = "SELECT * FROM tblproduto WHERE CodProduto = '$id'";
         $query = mysqli_query($cnx = conexao(), $comando);

@@ -35,6 +35,9 @@
                             }
                             ?>
                         </table>
+                        <div>
+                            <h4>Total: <?=$_SESSION["carrinho"]["total"]?></h4>    
+                        </div>
                     </div>
                     
                     <div class="col-lg-4">
@@ -46,7 +49,6 @@
                     
                     <div class="col-lg-12 border-top">
                         <h3 class="text-center">Possui Cupom?</h3>
-                        
                         <form action="" method="post">
                             <div class="input-group col-lg-4">
                                 <input type="text" name="cupom" class="form-control" placeholder="XXXXXXXXX-XX">
@@ -71,7 +73,7 @@
                         </form>
                     </div>
                 </div>
-                <a href="#" class="btn btn-primary" role="button">COMPRAR</a>
+                <a href="./pedido/finalizar/<?=$cliente['CodCliente']?>" class="btn btn-primary" role="button">COMPRAR</a>
             </div>
 
         </div>

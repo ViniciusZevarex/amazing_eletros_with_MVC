@@ -17,6 +17,7 @@ function addCarrinho($id) {
             break;
         }
     }
+    
     //se nao existe produto no carrinho, cria um
     if (!$existeProduto) {
         $produto["id"] = $id;

@@ -45,6 +45,7 @@
             <div class="panel-footer">
                 <div class="col-lg-10">
                     <div class="row">
+                        <h4>Total: <?=$_SESSION["carrinho"]["total"]?></h4>
                         <form action="carrinho.php" method="post">
                             <div class="input-group col-lg-4">
                                 <input type="text" name="cep" class="form-control" placeholder="Calcule o prazo pelo CEP">
