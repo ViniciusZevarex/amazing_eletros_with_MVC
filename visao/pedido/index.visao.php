@@ -22,11 +22,7 @@
                                 ?>
                                 <tr>
                                     <td><?= $produto['NomeProduto'] ?></td>
-                                    <td>
-                                        <form method="POST" action="">
-                                            <input name="quantidade" type="number" value="<?= $produto['quantidade'] ?>"</td>
-                                        </form>
-                                    </td>
+                                    <td><?= $produto['quantidade'] ?></td>
                                     <td><?= $produto["Preco"] . " R$"; ?></td>
                                     <td><a href="<?= 'carrinho/deletar/' . $i ?>">excluir</a></td>
                                 </tr>

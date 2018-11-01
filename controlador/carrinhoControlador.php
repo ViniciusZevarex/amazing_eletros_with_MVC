@@ -14,7 +14,7 @@ function index() {
 
     // unset($_SESSION["carrinho"]);
     // die();
-
+    
     if (!empty($_SESSION["carrinho"])) {    
        foreach ($dados["produtos"] as $produto) {
       		$precoTotal += $produto['quantidade']*$produto["Preco"];

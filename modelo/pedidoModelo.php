@@ -18,7 +18,7 @@ function inserirPedido($codCliente, $CPF, $pais,$estado,$municipio,$endereco,$dt
 }
 
 function inserirProdutosPedidoId($codPedido,$codProduto,$quantidade){
-	$comando = "INSERT INTO tblProdutoPedido(CodProduto,CodPedido,Quantidade) VALUES ('$codPedido','$codProduto','$quantidade')";
+	$comando = "INSERT INTO tblProdutoPedido(CodPedido,CodProduto,Quantidade) VALUES ('$codPedido','$codProduto','$quantidade')";
 
 	$query = mysqli_query($cnx = conexao(), $comando);
 	$id = mysqli_insert_id($cnx);
@@ -27,4 +27,38 @@ function inserirProdutosPedidoId($codPedido,$codProduto,$quantidade){
 		echo "Erro: " . mysqli_error($cnx);
 		die();
 	}
+}
+
+function pegarPedidosPor($id){
+	$comando = "SELECT * FROM tblpedido WHERE CodCliente = '$id'";
+
+	$query = mysqli_query($cnx = conexao(), $comando);
+
+	if (!$query) {
+		echo "Erro: " . mysqli_error($cnx);
+		die();
+	}
+
+	while ($row = mysqli_fetch_assoc($query)){
+		$pedidos[] = $row;
+	}
+
+
+	return $pedidos;
+}
+
+function pegarProdutosPedidosPorId($id){
+	$comando = "SELECT * FROM tblprodutopedido WHERE CodPedido = '$id'";
+
+	$query = mysqli_query($cnx = conexao(), $comando);
+
+	if (!$query) {
+		echo "Erro: " . mysqli_error($cnx);
+		die();
+	}
+
+	while ($row = mysqli_fetch_assoc($query)){
+		$produtos[] = $row;
+	}
+	return $produtos;
 }

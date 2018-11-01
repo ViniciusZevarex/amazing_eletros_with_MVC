@@ -117,9 +117,17 @@ function updateDataProduct($codProduto, $codCategoria, $nomeProduto, $precoProdu
 }
 
 function updateEstoqueProduto($codProduto, $quantidade, $estoque_atual){
+    print_r($estoque_atual);
     $estoque = $estoque_atual - $quantidade;
-    $comando = "UPDATE tblproduto SET Estoque = '$estoque' WHERE CodProduto = $codProduto";
 
+    $comando = "UPDATE tblproduto SET CodProduto = '$codProduto', Estoque = '$estoque' WHERE CodProduto = $codProduto";
+    $update = mysqli_query(conexao(), $comando);
+
+    if (!$update) {
+        echo "Não deu certo " . mysqli_error(conexao());
+    } else {
+        header("Location: ../index.php");
+    }
 }
 
 /**

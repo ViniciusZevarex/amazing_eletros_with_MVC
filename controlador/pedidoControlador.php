@@ -16,6 +16,7 @@ function index(){
     exibir("pedido/index",$dados);
 }
 
+/* user,admin*/
 function finalizar($codCliente){
 	$carrinhoProdutos = $_SESSION["carrinho"];
     $dados["produtos"] = pegarVariosProdutosPorId($carrinhoProdutos);
@@ -32,5 +33,23 @@ function finalizar($codCliente){
         updateEstoqueProduto($produto["CodProduto"], $produto["quantidade"], $produto["Estoque"]);
     }
 
+    unset($_SESSION["carrinho"]);
+    redirecionar("produto/index");
+}
+
+function listar(){
+    $id_cliente = $_SESSION['auth']['codCliente'];
+
+    $dados["pedido"] = pegarPedidosPor($id_cliente);
+
+    foreach ($dados["pedido"] as $pedido){
+        $produtosPedidos = pegarProdutosPedidosPorId($pedido["CodPedido"]);
+        $pedido["produto"][] = $produtosPedidos;
+    }
+
     
+    echo "<pre>";
+    print_r($pedido);
+    die();
+    exibir("pedido/listar");
 }
