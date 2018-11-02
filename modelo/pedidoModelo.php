@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 require_once "bibliotecas/mysqli.php";
 
@@ -29,7 +29,7 @@ function inserirProdutosPedidoId($codPedido,$codProduto,$quantidade){
 	}
 }
 
-function pegarPedidosPor($id){
+function pegarPedidos($id){
 	$comando = "SELECT * FROM tblpedido WHERE CodCliente = '$id'";
 
 	$query = mysqli_query($cnx = conexao(), $comando);
@@ -40,15 +40,21 @@ function pegarPedidosPor($id){
 	}
 
 	while ($row = mysqli_fetch_assoc($query)){
-		$pedidos[] = $row;
+		$produtos["produtos"] = pegarProdutosPedidosPorId($id);
+		$pedidos[] = array_merge_recursive($row, $produtos);
 	}
-
 
 	return $pedidos;
 }
 
 function pegarProdutosPedidosPorId($id){
-	$comando = "SELECT * FROM tblprodutopedido WHERE CodPedido = '$id'";
+	$comando = "SELECT p.Imagem, p.NomeProduto, p.Preco FROM 
+	tblpedido as pe 
+	INNER JOIN tblprodutopedido as pp
+	ON (pe.CodPedido = pp.CodPedido)
+	INNER JOIN tblproduto as p 
+	ON (pp.CodProduto = p.CodProduto) 
+	WHERE pe.CodCliente = '$id'";
 
 	$query = mysqli_query($cnx = conexao(), $comando);
 
@@ -60,5 +66,6 @@ function pegarProdutosPedidosPorId($id){
 	while ($row = mysqli_fetch_assoc($query)){
 		$produtos[] = $row;
 	}
+
 	return $produtos;
 }

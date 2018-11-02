@@ -40,16 +40,7 @@ function finalizar($codCliente){
 function listar(){
     $id_cliente = $_SESSION['auth']['codCliente'];
 
-    $dados["pedido"] = pegarPedidosPor($id_cliente);
-
-    foreach ($dados["pedido"] as $pedido){
-        $produtosPedidos = pegarProdutosPedidosPorId($pedido["CodPedido"]);
-        $pedido["produto"][] = $produtosPedidos;
-    }
-
-    
-    echo "<pre>";
-    print_r($pedido);
-    die();
-    exibir("pedido/listar");
+    $dados["pedidos"] = pegarPedidos($id_cliente);
+        
+    exibir("pedido/listar", $dados);
 }
