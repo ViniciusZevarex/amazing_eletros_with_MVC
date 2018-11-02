@@ -40,11 +40,15 @@ function pegarPedidos($id){
 	}
 
 	while ($row = mysqli_fetch_assoc($query)){
-		$produtos["produto"] = pegarProdutosPedidosPorId($id);
+		$produtos["produto"] = pegarProdutosPedidosPorId($row['CodPedido']);
 		$pedidos[] = array_merge_recursive($row, $produtos);
 	}
 
-	return $pedidos;
+	if(!empty($pedidos)){
+		return $pedidos;
+	}else{
+		return "";
+	}
 }
 
 function pegarProdutosPedidosPorId($id){
@@ -54,7 +58,7 @@ function pegarProdutosPedidosPorId($id){
 	ON (pe.CodPedido = pp.CodPedido)
 	INNER JOIN tblproduto as p 
 	ON (pp.CodProduto = p.CodProduto) 
-	WHERE pe.CodCliente = '$id'";
+	WHERE pe.CodPedido = '$id'";
 
 	$query = mysqli_query($cnx = conexao(), $comando);
 

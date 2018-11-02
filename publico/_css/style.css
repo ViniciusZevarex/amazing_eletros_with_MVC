@@ -1,5 +1,8 @@
 body{
 	background-image: url("../imgs/imgsEstilos/background.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-attachment: fixed
 }
 .list-group-item-identity{
 	background-color: #bbbbbb;

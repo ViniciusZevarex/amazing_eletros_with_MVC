@@ -15,6 +15,5 @@
 		<div class="form-group">
 			<button type="submit" class="btn btn-primary col-md-12">Entrar</button>
 		</div>
-
 	</form>
 </div>

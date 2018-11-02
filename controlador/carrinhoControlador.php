@@ -8,12 +8,6 @@ function index() {
     $carrinhoProdutos = $_SESSION["carrinho"];
     $dados["produtos"] = pegarVariosProdutosPorId($carrinhoProdutos);    
     $precoTotal = 0;
-
-
-    //morrer($dados["produtos"]);
-
-    // unset($_SESSION["carrinho"]);
-    // die();
     
     if (!empty($_SESSION["carrinho"])) {    
        foreach ($dados["produtos"] as $produto) {

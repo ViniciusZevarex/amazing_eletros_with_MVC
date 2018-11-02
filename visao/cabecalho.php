@@ -29,6 +29,11 @@
 						<ul class="dropdown-menu">
 							<li><a href="./usuario/listar/">Meus Dados</a></li>
 							<li><a href="./pedido/listar">Meus pedidos</a></li>
+							<?php 
+								if($_SESSION["auth"]["role"] == "admin"){
+							?>
+								<li><a href="./dashboard/">Dashboard</a></li>
+							<?php } ?>
 							<li><a href="./login/logout">Logout</a></li>
 						</ul>
 					</li>

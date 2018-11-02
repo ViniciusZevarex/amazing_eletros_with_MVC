@@ -40,7 +40,11 @@ function finalizar($codCliente){
 function listar(){
     $id_cliente = $_SESSION['auth']['codCliente'];
 
-    $dados["pedidos"] = pegarPedidos($id_cliente);
-    
+    if($pedidos = pegarPedidos($id_cliente)){
+        $dados["pedidos"] = $pedidos;
+    }else{
+        $dados["pedidos"] = "";
+    }
+
     exibir("pedido/listar", $dados);
 }
