@@ -3,34 +3,34 @@
         <h2 class="text-center"> <strong>Meus pedidos</strong></h2>
 
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-            <div class="panel panel-default">
-
-                <?php 
-                foreach ($pedidos as $pedido) {
-                    ?>
-
+            <?php 
+            foreach ($pedidos as $pedido) {
+                ?>
+                <div class="panel panel-default">
                     <div class="panel-heading" role="tab" id="headingOne">
-                        <h4 class="panel-title">
-                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                +
-                            </a>
-                            <table class="table">
-                                <tr>
-                                    <th>Nº do pedido</th>
-                                    <th>Data do pedido</th>
-                                    <th>Valor do pedido</th>
-                                    <th>Status</th>
-                                </tr>
-                                <tr>
-
-                                </tr>
-                            </table>
-                        </h4>
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#<?=$pedido["CodPedido"]?>" aria-expanded="true" aria-controls="collapseOne">
+                            +
+                        </a>
+                        <table class="table">
+                            <tr>
+                                <th>Nº do pedido</th>
+                                <th>Data do pedido</th>
+                                <th>Valor do pedido</th>
+                                <th>Status</th>
+                            </tr>
+                            <tr>
+                                <td><?=$pedido["CodPedido"] ?></td>
+                                <td><?=$pedido["dtPedido"] ?></td>
+                                <td><?=$pedido["ValorTotal"] . " R$" ?></td>
+                                <td>Entregue <span class="glyphicon glyphicon-home" aria-hidden="true"></span></td>
+                            </tr>
+                        </table>
                     </div>
-                    <?php 
-                    foreach ($pedidos["produtos"] as $produtos) {
+                    
+                    <?php
+                    foreach ($pedido["produto"] as $produto) {
                         ?>
-                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div id="<?=$pedido["CodPedido"]?>" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                             <div class="panel-body">
                                 <table class="table col-lg-12">
                                     <tr>
@@ -46,11 +46,13 @@
                                 </table>
                             </div>
                         </div>
-                        <?php } 
+                        <?php 
                     }
                     ?>
                 </div>
-            </div>
-
+                <?php 
+            }
+            ?>
         </div>
-    </section>
+    </div> 
+</section>

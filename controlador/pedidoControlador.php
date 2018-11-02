@@ -41,6 +41,6 @@ function listar(){
     $id_cliente = $_SESSION['auth']['codCliente'];
 
     $dados["pedidos"] = pegarPedidos($id_cliente);
-        
+    
     exibir("pedido/listar", $dados);
 }

@@ -7,8 +7,8 @@ function index() {
     exibir("usuario/formulario");
 }
 
-function listar($id){
-    $dados["user"] = pegarUsuarioPorId($id);
+function listar(){
+    $dados["user"] = pegarUsuarioPorId($_SESSION['auth']['codCliente']);
     exibir("usuario/listar",$dados);
 }
 /** anon */

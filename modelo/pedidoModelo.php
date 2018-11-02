@@ -40,7 +40,7 @@ function pegarPedidos($id){
 	}
 
 	while ($row = mysqli_fetch_assoc($query)){
-		$produtos["produtos"] = pegarProdutosPedidosPorId($id);
+		$produtos["produto"] = pegarProdutosPedidosPorId($id);
 		$pedidos[] = array_merge_recursive($row, $produtos);
 	}
 

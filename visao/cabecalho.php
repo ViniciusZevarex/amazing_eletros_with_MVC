@@ -27,7 +27,8 @@
 							<span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu">
-							<li><a href="<?php echo "./usuario/listar/" . $_SESSION['auth']['codCliente']  ?>">Meus Dados</a></li>
+							<li><a href="./usuario/listar/">Meus Dados</a></li>
+							<li><a href="./pedido/listar">Meus pedidos</a></li>
 							<li><a href="./login/logout">Logout</a></li>
 						</ul>
 					</li>
