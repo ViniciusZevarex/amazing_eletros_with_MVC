@@ -1,3 +1,7 @@
+Amazing Eletros
+=======
+Esté é um projeto realizado por estudantes do Curso técnico em informática integrado ao Ensino Médio do IFSP, é de cunho avaliativo e visa com que os alunos apliquem seus conhecimentos aprendidos nas aulas de programação Web no desenvolvimento de uma loja virtual, utilizando a arquitetura MVC. Para tal, utiliza-se o framework "NoopMVC", que é de cunho educacional para alunos que não tem familiariedade com a programação orientada a objetos. 
+
 noopMVC - Not Object-Oriented Programming MVC
 =======
 
