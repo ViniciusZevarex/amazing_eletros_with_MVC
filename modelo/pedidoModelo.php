@@ -73,3 +73,17 @@ function pegarProdutosPedidosPorId($id){
 
 	return $produtos;
 }
+
+function pegarDecontoCupom($cupom){
+	$comando = "SELECT PorcentagemDesconto FROM tblcupom WHERE DescCupom = '$cupom'";
+	$query = mysqli_query($cnx = conexao(),$comando);
+
+	if (!$query) {
+		echo "Erro: " . mysqli_error($cnx);
+		die();
+	}
+
+	$desconto = mysqli_fetch_assoc($query);
+
+	return $desconto["PorcentagemDesconto"];
+}

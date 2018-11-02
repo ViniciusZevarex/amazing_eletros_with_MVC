@@ -5,6 +5,20 @@ require_once "modelo/pedidoModelo.php";
 
 /* user,admin*/
 function index(){
+    if(ehPost()){
+        extract($_POST);
+        $desconto = pegarDecontoCupom($cupom);
+        
+        if(!empty($desconto)){
+            $total_atual = $_SESSION["carrinho"]["total"];
+            $total = $total_atual - ($total_atual * ($desconto/100));
+            $_SESSION["carrinho"]["total"] = $total;
+            alert("Desconto aplicado com sucesso!<br>","success");
+        }else{
+            alert("Cupom não encontrado!<br>","danger"); 
+        }
+    }
+    
     $carrinhoProdutos = $_SESSION["carrinho"];
     $dados["produtos"] = pegarVariosProdutosPorId($carrinhoProdutos);
     

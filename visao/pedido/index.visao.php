@@ -45,14 +45,16 @@
                     
                     <div class="col-lg-12 border-top">
                         <h3 class="text-center">Possui Cupom?</h3>
+                        <!-- cupom -->
                         <form action="" method="post">
                             <div class="input-group col-lg-4">
-                                <input type="text" name="cupom" class="form-control" placeholder="XXXXXXXXX-XX">
+                                <input type="text" name="cupom" class="form-control" placeholder="">
                                 <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button">Aplicar</button>
+                                    <input class="btn btn-default" type="submit" placeholder="Aplicar">
                                 </span>
                             </div>
                         </form>
+
                     </div> 
                 </div>
             </div>   
