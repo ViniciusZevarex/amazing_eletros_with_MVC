@@ -1,7 +1,5 @@
 <?php
-
 require_once 'app.php'; //arquivo geral da aplicacao
-
 $uri = explode("/", $_SERVER["REQUEST_URI"]); //explore a URL
 
 $controllerName = $uri[2]; //coloca como padrao: nomeProjeto/controlador/acao/parametros

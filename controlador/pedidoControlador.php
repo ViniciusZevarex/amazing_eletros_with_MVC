@@ -1,5 +1,4 @@
 <?php
-
 require "modelo/produtoModelo.php";
 require_once "modelo/usuarioModelo.php";
 require_once "modelo/pedidoModelo.php";
@@ -21,7 +20,7 @@ function finalizar($codCliente){
 	$carrinhoProdutos = $_SESSION["carrinho"];
     $dados["produtos"] = pegarVariosProdutosPorId($carrinhoProdutos);
 
-    $data_pedido = date("Y-m-d");
+    $data_pedido = strftime("%Y/%m/%d") . " " . strftime("%H:%M:%S");
 
     $id_cliente = $_SESSION['auth']['codCliente'];
     $dadosCliente = pegarUsuarioPorId($id_cliente);

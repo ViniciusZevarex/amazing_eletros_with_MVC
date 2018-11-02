@@ -1,5 +1,5 @@
 <?php 
-
+date_default_timezone_set ("America/Sao_Paulo");
 require_once "bibliotecas/mysqli.php";
 
 function inserirPedido($codCliente, $CPF, $pais,$estado,$municipio,$endereco,$dt_pedido,$valorTotal){
