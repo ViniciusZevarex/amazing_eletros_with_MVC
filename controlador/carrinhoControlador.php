@@ -18,10 +18,11 @@ function index() {
         $dados["produtos"] = pegarVariosProdutosPorId($carrinhoProdutos);    
         $precoTotal = 0;
      
-       foreach ($dados["produtos"] as $produto) {
-      		$precoTotal += $produto['quantidade']*$produto["Preco"];
-       }
-
+        if(!empty($dados["produtos"])){
+            foreach ($dados["produtos"] as $produto) {
+                    $precoTotal += $produto['quantidade']*$produto["Preco"];
+            }
+        }
        $_SESSION["carrinho"]["total"] = $precoTotal;
 
        exibir("produto/carrinho", $dados);
@@ -33,7 +34,7 @@ function index() {
 /** anon, admin, user */
 function adicionar($id) {
     addCarrinho($id);
-    redirecionar("carrinho");
+    redirecionar("produto");
 }
 
 /** anon, admin, user */
