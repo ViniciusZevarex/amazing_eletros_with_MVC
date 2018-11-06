@@ -28,6 +28,10 @@ function addCarrinho($id) {
         $_SESSION["carrinho"][] = $produto2;
     }
 
+    if(count($_SESSION["carrinho"] == 1)){
+        $_SESSION["carrinho"]["total"] = 0;
+    }
+
 }
 
 ?>

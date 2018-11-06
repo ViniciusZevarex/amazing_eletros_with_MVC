@@ -37,7 +37,7 @@ function adicionar() {
         $diretorio_imagem = uploadImagem($imagem_name, $imagem_tmp);
         $msgRetorno = insertProduct($codCategoria, $nomeProduto, $precoProduto,$estoque, $descricaoProduto, $diretorio_imagem);
 
-        redirecionar("produto/index");
+        redirecionar("dashboard/produto/");
     } else {
         $dados["categorias"] = getCategorias();
         exibir("produto/formulario", $dados);

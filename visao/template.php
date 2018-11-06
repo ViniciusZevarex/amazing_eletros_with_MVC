@@ -10,18 +10,24 @@
     <link href="./publico/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./publico/_css/style.css">
 </head>
-    <body>
-        <?php require "./visao/cabecalho.php"; ?>
+<body>
+    <?php require "./visao/cabecalho.php"; ?>
 
-        <?php alertComponentRender(); ?>
+    <?php alertComponentRender(); ?>
 
-        <main class="container">
-            <?php require $viewFilePath; ?>
-        </main>
+    <main class="container">
+        <?php require $viewFilePath; ?>
+    </main>
 
-        <?php require "visao/footer.php"; ?>
+    <?php require "visao/footer.php"; ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="./publico/js/bootstrap.min.js"></script>
     <script src="./publico/_js/jquery.mask.js"></script>
-    </body>
+
+    <script type="text/javascript">
+        $(".quantidade-carrinho").keypress(function (evt) {
+            evt.preventDefault();
+        });
+  </script>
+</body>
 </html>

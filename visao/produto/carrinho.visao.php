@@ -26,7 +26,7 @@
                                 <td>
                                     <form method="POST" action="">
                                         <input type="hidden" name="index_produto" value="<?=$i ?>">
-                                        <input name="quantidade" type="number" value="<?=$produto['quantidade'] ?>" data-mask="00">
+                                        <input class="quantidade-carrinho" name="quantidade" type="number" value="<?=$produto['quantidade'] ?>" max="<?=$produto['Estoque'] ?>" data-mask="00">
                                         <input type="submit" value="ALTERAR">
                                     </form>
                                 </td>

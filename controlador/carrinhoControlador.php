@@ -13,6 +13,7 @@ function index() {
         $_SESSION["carrinho"][$index_produto]["quantidade"] = $quantidade;
     }
 
+
     if (!empty($_SESSION["carrinho"])) {
         $carrinhoProdutos = $_SESSION["carrinho"];
         $dados["produtos"] = pegarVariosProdutosPorId($carrinhoProdutos);    
@@ -20,7 +21,7 @@ function index() {
      
         if(!empty($dados["produtos"])){
             foreach ($dados["produtos"] as $produto) {
-                    $precoTotal += $produto['quantidade']*$produto["Preco"];
+                $precoTotal += $produto['quantidade']*$produto["Preco"];
             }
         }
        $_SESSION["carrinho"]["total"] = $precoTotal;
@@ -29,6 +30,7 @@ function index() {
     }else{
         exibir("produto/carrinho");
     }
+
 }
 
 /** anon, admin, user */

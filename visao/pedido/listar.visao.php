@@ -9,7 +9,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading" role="tab" id="headingOne">
                         <a role="button" data-toggle="collapse" data-parent="#accordion" href="#<?=$pedido["CodPedido"]?>" aria-expanded="true" aria-controls="collapseOne">
-                            +
+                            Mostrar mais/menos
                         </a>
                         <table class="table">
                             <tr>
