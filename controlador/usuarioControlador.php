@@ -1,5 +1,4 @@
 <?php
-
 require_once "modelo/usuarioModelo.php";
 require "bibliotecas/validacaoCadastro.php";
 /** anon */

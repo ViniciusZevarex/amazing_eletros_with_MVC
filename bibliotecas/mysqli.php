@@ -1,7 +1,8 @@
 <?php
-
+require_once "./servicos/CnxReadConf.php";
 function conexao() {
-    $cnx = mysqli_connect("localhost","root","","AMAZING_ELETROS");
+	$dadosCnx = rootAcess();
+    $cnx = mysqli_connect($dadosCnx[0],"root","",$dadosCnx[1]);
     if (!$cnx) die('Deu errado a conexao!');
 
     mysqli_set_charset($cnx,"utf8");
