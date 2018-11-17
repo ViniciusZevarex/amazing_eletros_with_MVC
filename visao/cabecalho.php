@@ -42,10 +42,33 @@
 					<li><a href="./usuario/adicionar/"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Cadastre-se</a></li>
 					<?php } ?>
 					<!-- carrinho de compras -->
-					<li><a href="./carrinho/index"><span class="glyphicon glyphicon-shopping-cart"></span><span class="badge">
-						<?php echo isset($_SESSION["carrinho"]) ? count($_SESSION["carrinho"])-1 : 0; ?>
-					</span></a>
-				</li>
+					<li>
+						<a href="./carrinho/index"  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+							<span class="glyphicon glyphicon-shopping-cart"></span>
+							<span class="badge">
+								<?php echo isset($_SESSION["carrinho"]) ? count($_SESSION["carrinho"])-1 : 0; ?>
+							</span> 
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu dropdown-carrinho">
+							<?php 
+								if (isset($_SESSION["carrinho"][0])) {
+									$carrinhoProdutos = $_SESSION["carrinho"];
+									$carrinho = pegarVariosProdutosPorId($carrinhoProdutos);
+							?>
+							<?php foreach($carrinho as $produtoCarrinho){ ?>
+								<li>
+									<img class="icon-dropdown" src="<?=$produtoCarrinho['Imagem']?>">
+									<?=$produtoCarrinho['NomeProduto']?>
+									<span><a class="btn btn-primary" href="./produto/visualizar/<?=$produtoCarrinho['CodProduto']?>">visualizar</a></span>
+								</li>
+							<?php } ?>
+							<?php }else{?>
+								<li>Seu carrinho está vazio!</li>
+							<?php } ?>
+							<li><span><a class="btn btn-primary" href="./carrinho/" style="margin:2%;">ir para o carrinho</a></span></li>
+						</ul>
+					</li>
 			</ul>
 		</div>
 

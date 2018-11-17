@@ -20,14 +20,11 @@
     </main>
 
     <?php require "visao/footer.php"; ?>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="./publico/js/bootstrap.min.js"></script>
     <script src="./publico/_js/jquery.mask.js"></script>
-
-    <script type="text/javascript">
-        $(".quantidade-carrinho").keypress(function (evt) {
-            evt.preventDefault();
-        });
-  </script>
+    <script src="./publico/_js/ajax.js"></script>
+    <script src="./publico/_js/main.js"></script>
 </body>
 </html>

@@ -2,13 +2,13 @@
     <div class="row">
         <?php if(!empty($pedidos)){ ?>
         <h2 class="text-center"> <strong>Meus pedidos</strong></h2>
-        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        <div class="panel-group" id="pedidos" role="tablist" aria-multiselectable="true">
         <?php 
             foreach ($pedidos as $pedido) {
                 ?>
                 <div class="panel panel-default">
                     <div class="panel-heading" role="tab" id="headingOne">
-                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#<?=$pedido["CodPedido"]?>" aria-expanded="true" aria-controls="collapseOne">
+                        <a role="button" data-toggle="collapse" data-parent="#pedidos" href="#<?=$pedido["CodPedido"]?>" aria-expanded="false" aria-controls="collapseOne">
                             Mostrar mais/menos
                         </a>
                         <table class="table">

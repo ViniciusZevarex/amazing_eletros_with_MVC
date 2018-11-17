@@ -86,3 +86,16 @@ img.imagem-produto{
 		border-left-style: none;
 	}
 }
+.dropdown-menu> li> a:hover{
+	size: 2em;
+	background: #222;
+	color: white;
+}
+
+.icon-dropdown{
+	width: 90px;
+	margin:2%;
+}
+.dropdown-carrinho{
+	min-width: 400px;
+}
