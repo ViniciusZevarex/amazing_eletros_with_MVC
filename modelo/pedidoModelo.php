@@ -51,6 +51,48 @@ function pegarPedidos($id){
 	}
 }
 
+function pegarPedidoPorMunicipio($municipio){
+	$comando = "SELECT * FROM tblpedido WHERE Municipio = '$municipio'";
+	$query = mysqli_query($cnx = conexao(), $comando);
+
+	if (!$query) {
+		echo "Erro: " . mysqli_error($cnx);
+		die();
+	}
+
+	while ($row = mysqli_fetch_assoc($query)){
+		$pedidos[] = $row;
+	}
+
+	if (!empty($pedidos)) {
+		return $pedidos;
+	}else{
+		return "";
+	}
+}
+
+function pegarPedidoPorIntervaloData($dtInicio,$dtFim){
+	$comando = "SELECT * FROM tblpedido WHERE dtPedido BETWEEN ('$dtInicio') AND ('$dtFim');";
+	$query = mysqli_query($cnx = conexao(), $comando);
+
+	if (!$query) {
+		echo "Erro: " . mysqli_error($cnx);
+		die();
+	}
+
+	while ($row = mysqli_fetch_assoc($query)){
+		$pedidos[] = $row;
+	}
+
+	if (!empty($pedidos)) {
+		return $pedidos;
+	}else{
+		return "";
+	}
+}
+
+
+
 function pegarProdutosPedidosPorId($id){
 	$comando = "SELECT p.Imagem, p.NomeProduto, p.Preco FROM 
 	tblpedido as pe 

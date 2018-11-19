@@ -2,10 +2,26 @@
 require "./modelo/produtoModelo.php";
 require "modelo/categoriaModelo.php";
 require "servicos/uploadImagemServico.php";
+require "./modelo/pedidoModelo.php";
 
 /** anon */
 function index() {
-    exibir("dashboard/index");
+    //lista de pedidos por municipio
+    if (!empty($_POST["Municipio"])) {
+        extract($_POST);  
+        $dados["pedidosMunicipio"] = pegarPedidoPorMunicipio($Municipio); 
+    }else{
+        $dados["pedidosMunicipio"] = "";
+    }
+
+    if (!empty($_POST["dtInicio"]) && !empty($_POST["dtFim"])) {
+        extract($_POST);  
+        $dados["pedidosPorData"] = pegarPedidoPorIntervaloData($dtInicio,$dtFim); 
+    }else{
+        $dados["pedidosMunicipio"] = "";
+    }
+
+    exibir("dashboard/index",$dados);
 }
 
 /** anon */
@@ -35,8 +51,6 @@ function usuario(){
     exibir("dashboard/usuario", $dados);
 }
 
-function editar() {
-}
 
 
 
