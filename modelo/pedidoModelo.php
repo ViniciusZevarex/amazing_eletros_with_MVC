@@ -52,7 +52,7 @@ function pegarPedidos($id){
 }
 
 function pegarPedidoPorMunicipio($municipio){
-	$comando = "SELECT * FROM tblpedido WHERE Municipio = '$municipio'";
+	$comando = "SELECT * FROM tblpedido WHERE Municipio LIKE '%$municipio%'";
 	$query = mysqli_query($cnx = conexao(), $comando);
 
 	if (!$query) {
@@ -94,13 +94,7 @@ function pegarPedidoPorIntervaloData($dtInicio,$dtFim){
 
 
 function pegarProdutosPedidosPorId($id){
-	$comando = "SELECT p.Imagem, p.NomeProduto, p.Preco FROM 
-	tblpedido as pe 
-	INNER JOIN tblprodutopedido as pp
-	ON (pe.CodPedido = pp.CodPedido)
-	INNER JOIN tblproduto as p 
-	ON (pp.CodProduto = p.CodProduto) 
-	WHERE pe.CodPedido = '$id'";
+	$comando = "SELECT * FROM vw_produto_de_pedido WHERE CodPedido = '$id'";
 
 	$query = mysqli_query($cnx = conexao(), $comando);
 

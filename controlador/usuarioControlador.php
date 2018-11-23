@@ -1,11 +1,13 @@
 <?php
 require_once "modelo/usuarioModelo.php";
+require "modelo/produtoModelo.php";
 require "bibliotecas/validacaoCadastro.php";
+
 /** anon */
 function index() {
     exibir("usuario/formulario");
 }
-
+/** admin,user */
 function listar(){
     $dados["user"] = pegarUsuarioPorId($_SESSION['auth']['codCliente']);
     exibir("usuario/listar",$dados);

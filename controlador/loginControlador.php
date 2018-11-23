@@ -1,4 +1,5 @@
 <?php
+require "modelo/produtoModelo.php";
 
 /** anon */
 function index() {

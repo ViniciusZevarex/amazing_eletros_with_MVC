@@ -8,7 +8,7 @@ require "./modelo/pedidoModelo.php";
 function index() {
     //lista de pedidos por municipio
     if (!empty($_POST["Municipio"])) {
-        extract($_POST);  
+        extract($_POST);
         $dados["pedidosMunicipio"] = pegarPedidoPorMunicipio($Municipio); 
     }else{
         $dados["pedidosMunicipio"] = "";
@@ -16,11 +16,18 @@ function index() {
 
     if (!empty($_POST["dtInicio"]) && !empty($_POST["dtFim"])) {
         extract($_POST);  
-        $dados["pedidosPorData"] = pegarPedidoPorIntervaloData($dtInicio,$dtFim); 
-    }else{
-        $dados["pedidosMunicipio"] = "";
-    }
+        $dados["pedidosPorData"] = pegarPedidoPorIntervaloData($dtInicio,$dtFim);
 
+        $faturamento = 0;
+        foreach ($dados["pedidosPorData"] as $pedidosPorData) {
+            $faturamento += $pedidosPorData["ValorTotal"];
+        } 
+
+        $dados["faturamento"] = $faturamento;
+    }else{
+        $dados["pedidosPorData"] = "";
+    }
+    
     exibir("dashboard/index",$dados);
 }
 
@@ -50,8 +57,5 @@ function usuario(){
     }
     exibir("dashboard/usuario", $dados);
 }
-
-
-
 
 ?>

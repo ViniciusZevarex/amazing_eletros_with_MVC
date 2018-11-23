@@ -29,7 +29,7 @@
                                 <div class="panel panel-default">
                                     <div class="panel-body">
                                         <table class="table">
-                                           <tr>
+                                         <tr>
                                             <th>Nº do pedido</th>
                                             <th>Data do pedido</th>
                                             <th>Valor do pedido</th>
@@ -37,11 +37,11 @@
                                         <tr>
                                             <?php
                                             if(!empty($pedidosMunicipio)){
-                                                foreach ($pedidosMunicipio as $pedido) {
+                                                foreach ($pedidosMunicipio as $pedidoMunicipio) {
                                                     ?>
-                                                    <td><?=$pedido["CodPedido"] ?></td>
-                                                    <td><?=$pedido["dtPedido"] ?></td>
-                                                    <td><?=$pedido["ValorTotal"] . " R$" ?></td>
+                                                    <td><?=$pedidoMunicipio["CodPedido"] ?></td>
+                                                    <td><?=$pedidoMunicipio["dtPedido"] ?></td>
+                                                    <td><?=$pedidoMunicipio["ValorTotal"] . " R$" ?></td>
                                                 </tr>
                                                 <?php 
                                             }
@@ -74,7 +74,7 @@
                                 <div class="panel panel-default">
                                     <div class="panel-body">
                                         <table class="table">
-                                           <tr>
+                                         <tr>
                                             <th>Nº do pedido</th>
                                             <th>Data do pedido</th>
                                             <th>Valor do pedido</th>
@@ -88,39 +88,24 @@
                                                     <td><?=$pedido["dtPedido"] ?></td>
                                                     <td><?=$pedido["ValorTotal"] . " R$" ?></td>
                                                 </tr>
-                                                <?php 
-                                            }
-                                        } 
-                                        ?>
-                                    </table>
+                                                <?php } ?>
+                                                <div class="panel panel-default">
+                                                  <div class="panel-heading">
+                                                      <h3>Faturamento do período: </h3>
+                                                  </div>
+                                                  <div class="panel-body">
+                                                    <strong><?=$faturamento . " R$" ?></strong>
+                                                </div>
+                                            </div>
+                                            <?php } ?>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="content-box-large box-with-header">
-
-                        <br /><br />
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="content-box-header">
-                        <div class="panel-title"><h2>Faturamento mensal, semanal e anual</h2></div>
-
-                        <div class="panel-options">
-                            <a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
-                            <a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a>
-                        </div>
-                    </div>
-                    <div class="content-box-large box-with-header">
-
-                        Pellentesque luctus quam quis consequat vulputate. Sed sit amet diam ipsum. Praesent in pellentesque diam, sit amet dignissim erat. Aliquam erat volutpat. Aenean laoreet metus leo, laoreet feugiat enim suscipit quis. Praesent mauris mauris, ornare vitae tincidunt sed, hendrerit eget augue. Nam nec vestibulum nisi, eu dignissim nulla.
-                        <br /><br />
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </div>

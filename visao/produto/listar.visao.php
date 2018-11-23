@@ -1,7 +1,8 @@
 <header class="container hidden-xs">
 
 	<!-- carounsel -->
-	<div id="carousel-id" class="carousel slide" data-ride="carousel"  data-interval="1500">
+
+	<div id="carousel-id" class="carousel slide" data-ride="carousel"  data-interval="1800">
 		<ol class="carousel-indicators">
 			<li data-target="#carousel-id" data-slide-to="0" class=""></li>
 			<li data-target="#carousel-id" data-slide-to="1" class=""></li>
