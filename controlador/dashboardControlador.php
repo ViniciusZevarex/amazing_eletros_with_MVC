@@ -18,12 +18,14 @@ function index() {
         extract($_POST);  
         $dados["pedidosPorData"] = pegarPedidoPorIntervaloData($dtInicio,$dtFim);
 
-        $faturamento = 0;
-        foreach ($dados["pedidosPorData"] as $pedidosPorData) {
-            $faturamento += $pedidosPorData["ValorTotal"];
-        } 
-
-        $dados["faturamento"] = $faturamento;
+        if (!empty($dados["pedidosPorData"])) {
+            $faturamento = 0;
+            foreach ($dados["pedidosPorData"] as $pedidosPorData) {
+                $faturamento += $pedidosPorData["ValorTotal"];
+            } 
+            $dados["faturamento"] = $faturamento;
+        }
+        
     }else{
         $dados["pedidosPorData"] = "";
     }
@@ -47,15 +49,15 @@ function produto() {
 
 /** anon */
 function usuario(){
-   if (ehPost()) {
-        extract($_POST);
-        $msgRetorno = adicionarUsuario($nome, $CPF, $email, $senha, $data_nascimento, $pais, $estado, $municipio, $endereco, $sexo);
+ if (ehPost()) {
+    extract($_POST);
+    $msgRetorno = adicionarUsuario($nome, $CPF, $email, $senha, $data_nascimento, $pais, $estado, $municipio, $endereco, $sexo);
 
-        redirecionar("dashboard/usuario");
-    } else {
-        $dados["usuarios"] = pegarTodosUsuarios();
-    }
-    exibir("dashboard/usuario", $dados);
+    redirecionar("dashboard/usuario");
+} else {
+    $dados["usuarios"] = pegarTodosUsuarios();
+}
+exibir("dashboard/usuario", $dados);
 }
 
 ?>
